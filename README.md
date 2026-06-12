@@ -1,3 +1,7 @@
+> **⚠️ توجه: این افزونه هنوز در حال توسعه است و برای استفاده در محیط تولید (Production) مناسب نیست.**
+>
+> **⚠️ NOTICE: This plugin is still under development and is NOT ready for production use.**
+
 # Lumora — Modern WordPress Admin Dashboard
 
 [![CI](https://github.com/Hordekiller/LUMORA/actions/workflows/ci.yml/badge.svg)](https://github.com/Hordekiller/LUMORA/actions/workflows/ci.yml)
