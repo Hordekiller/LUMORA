@@ -1,0 +1,111 @@
+@keyframes lumora-fade-in {
+
+  from { opacity: 0; }
+
+  to   { opacity: 1; }
+}
+
+@keyframes lumora-fade-in-up {
+
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lumora-fade-in-scale {
+
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes lumora-slide-in-right {
+
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes lumora-slide-in-left {
+
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes lumora-slide-out-right {
+
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+
+@keyframes lumora-spin {
+
+  to { transform: rotate(360deg); }
+}
+
+@keyframes lumora-pulse {
+
+  0%, 100% { opacity: 1; }
+
+  50%      { opacity: 0.5; }
+}
+
+@keyframes lumora-shimmer {
+
+  0%   { background-position: -200% 0; }
+
+  100% { background-position: 200% 0; }
+}
+
+.lumora-enter-fade {
+  animation: lumora-fade-in var(--lumora-transition-slow) ease forwards;
+}
+
+.lumora-enter-up {
+  animation: lumora-fade-in-up var(--lumora-transition) ease forwards;
+}
+
+.lumora-enter-scale {
+  animation: lumora-fade-in-scale var(--lumora-transition-spring) ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .lumora-enter-fade,
+  .lumora-enter-up,
+  .lumora-enter-scale {
+    animation: none;
+  }
+}

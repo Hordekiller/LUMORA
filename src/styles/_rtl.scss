@@ -1,0 +1,42 @@
+[dir="rtl"] .lumora-app {
+  --lumora-sidebar-width: 240px;
+  --lumora-sidebar-collapsed: 64px;
+}
+
+[dir="rtl"] .lumora-sidebar {
+  border-right: none;
+  border-left: 1px solid var(--lumora-border);
+}
+
+[dir="rtl"] .lumora-header {
+  padding-right: var(--lumora-space-6);
+  padding-left: 0;
+}
+
+[dir="rtl"] .lumora-sidebar__collapse {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .lumora-sidebar--collapsed .lumora-sidebar__collapse {
+  transform: rotate(0deg);
+}
+
+[dir="rtl"] .lumora-modal__close {
+  right: auto;
+  left: var(--lumora-space-4);
+}
+
+[dir="rtl"] .lumora-btn__icon {
+  margin-right: 0;
+  margin-left: var(--lumora-space-2);
+}
+
+[dir="rtl"] .lumora-input__icon {
+  left: auto;
+  right: var(--lumora-space-3);
+}
+
+[dir="rtl"] .lumora-badge {
+  margin-right: 0;
+  margin-left: var(--lumora-space-2);
+}

@@ -1,0 +1,708 @@
+# Translation of Lumora in Persian (Iran)
+# Copyright (C) 2025 Lumora Team
+# This file is distributed under the GPL v2 or later.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Lumora 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/Hordekiller/LUMORA/issues\n"
+"POT-Creation-Date: 2025-06-12 00:00+0000\n"
+"PO-Revision-Date: 2025-06-12 00:00+0000\n"
+"Last-Translator: Lumora Team\n"
+"Language-Team: Persian (Iran)\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.x\n"
+
+#: lumora.php:36
+msgid "Lumora requires PHP 7.4 or higher. You are running %s."
+msgstr "لومورا به PHP نسخه ۷٫۴ یا بالاتر نیاز دارد. شما از %s استفاده می‌کنید."
+
+#: lumora.php:55
+msgid "Lumora requires WordPress 6.0 or higher. You are running %s."
+msgstr "لومورا به وردپرس نسخه ۶٫۰ یا بالاتر نیاز دارد. شما از %s استفاده می‌کنید."
+
+#: includes/class-activator.php:44
+msgid "Lumora requires PHP 7.4 or higher."
+msgstr "لومورا به PHP نسخه ۷٫۴ یا بالاتر نیاز دارد."
+
+#: includes/class-activator.php:52
+msgid "Lumora requires WordPress 6.0 or higher."
+msgstr "لومورا به وردپرس نسخه ۶٫۰ یا بالاتر نیاز دارد."
+
+#: includes/Admin/class-admin.php:58
+msgid "Lumora Dashboard"
+msgstr "داشبورد لومورا"
+
+#: includes/Admin/class-admin.php:59
+msgid "Lumora"
+msgstr "لومورا"
+
+#: includes/Core/class-security.php:66
+msgid "Unauthorized."
+msgstr "دسترسی غیرمجاز."
+
+#: includes/Modules/Widgets/class-widget-system.php:38
+msgid "System Info"
+msgstr "اطلاعات سیستم"
+
+#: includes/Modules/Widgets/class-widget-system.php:48
+msgid "Server and WordPress environment details."
+msgstr "جزئیات محیط سرور و وردپرس."
+
+#: includes/Modules/Widgets/class-widget-comments.php:38
+#: src/components/widgets/CommentsWidget.jsx:36
+msgid "Recent Comments"
+msgstr "نظرات اخیر"
+
+#: includes/Modules/Widgets/class-widget-comments.php:48
+msgid "Latest comments across your site."
+msgstr "آخرین نظرات در سراسر سایت شما."
+
+#: includes/Modules/Widgets/class-widget-comments.php:71
+msgid "Anonymous"
+msgstr "ناشناس"
+
+#: includes/Modules/Widgets/class-widget-stats.php:38
+msgid "Site Stats"
+msgstr "آمار سایت"
+
+#: includes/Modules/Widgets/class-widget-stats.php:48
+msgid "Displays site statistics summary."
+msgstr "نمایش خلاصه آمار سایت."
+
+#: includes/Modules/Widgets/class-widget-posts.php:38
+#: src/components/widgets/PostsWidget.jsx:36
+msgid "Recent Posts"
+msgstr "نوشته‌های اخیر"
+
+#: includes/Modules/Widgets/class-widget-posts.php:48
+msgid "Shows your most recent published posts."
+msgstr "نمایش آخرین نوشته‌های منتشرشده."
+
+#: includes/Modules/Widgets/class-widget-posts.php:72
+#: includes/API/class-search-endpoint.php:160
+#: includes/API/class-search-endpoint.php:192
+msgid "(no title)"
+msgstr "(بدون عنوان)"
+
+#: includes/Modules/CommandPalette/class-command-palette.php:75
+msgid "Add New Post"
+msgstr "افزودن نوشته جدید"
+
+#: includes/Modules/CommandPalette/class-command-palette.php:83
+msgid "Add New Page"
+msgstr "افزودن برگه جدید"
+
+#: includes/Modules/CommandPalette/class-command-palette.php:91
+msgid "Upload Media"
+msgstr "آپلود رسانه"
+
+#: includes/Modules/Dashboard/class-dashboard.php:49
+msgid "New Post"
+msgstr "نوشته جدید"
+
+#: includes/Modules/Dashboard/class-dashboard.php:56
+msgid "New Page"
+msgstr "برگه جدید"
+
+#: includes/Modules/Dashboard/class-dashboard.php:63
+msgid "Upload Media"
+msgstr "آپلود رسانه"
+
+#: includes/Modules/Dashboard/class-dashboard.php:70
+msgid "View Site"
+msgstr "مشاهده سایت"
+
+#: includes/API/class-dashboard-endpoint.php:91
+msgid "Welcome dismissed."
+msgstr "خوش‌آمدگویی رد شد."
+
+#: includes/API/class-dashboard-endpoint.php:109
+msgid "Dashboard config updated."
+msgstr "تنظیمات داشبورد به‌روز شد."
+
+#: includes/API/class-settings-endpoint.php:96
+msgid "Invalid request body."
+msgstr "محتوای درخواست نامعتبر."
+
+#: includes/API/class-settings-endpoint.php:108
+msgid "Settings updated."
+msgstr "تنظیمات به‌روز شد."
+
+#: includes/API/class-menu-endpoint.php:149
+msgid "Menu configuration saved."
+msgstr "تنظیمات منو ذخیره شد."
+
+#: includes/API/class-search-endpoint.php:277
+msgid "Toggle Dark/Light Mode"
+msgstr "تغییر حالت تیره/روشن"
+
+#: includes/API/class-search-endpoint.php:284
+msgid "Toggle Sidebar"
+msgstr "نمایش/مخفی‌سازی نوار کناری"
+
+#: includes/API/class-search-endpoint.php:291
+msgid "Go to Lumora Dashboard"
+msgstr "رفتن به داشبورد لومورا"
+
+#: includes/API/class-search-endpoint.php:298
+msgid "Go to Lumora Settings"
+msgstr "رفتن به تنظیمات لومورا"
+
+#: includes/API/class-search-endpoint.php:316
+msgid "WordPress Dashboard"
+msgstr "داشبورد وردپرس"
+
+#: includes/API/class-search-endpoint.php:323
+#: src/components/widgets/StatsWidget.jsx:29
+#: src/components/command-palette/CommandPalette.jsx:7
+msgid "Posts"
+msgstr "نوشته‌ها"
+
+#: includes/API/class-search-endpoint.php:330
+msgid "Media Library"
+msgstr "کتابخانه رسانه"
+
+#: includes/API/class-search-endpoint.php:337
+msgid "Pages"
+msgstr "برگه‌ها"
+
+#: includes/API/class-search-endpoint.php:344
+msgid "Comments"
+msgstr "نظرات"
+
+#: includes/API/class-search-endpoint.php:351
+msgid "Users"
+msgstr "کاربران"
+
+#: includes/API/class-search-endpoint.php:358
+msgid "Plugins"
+msgstr "افزونه‌ها"
+
+#: includes/API/class-search-endpoint.php:365
+msgid "General Settings"
+msgstr "تنظیمات عمومی"
+
+#: includes/API/class-search-endpoint.php:372
+msgid "Themes"
+msgstr "پوسته‌ها"
+
+#: src/components/settings/WhiteLabel.jsx:56
+msgid "White label settings saved."
+msgstr "تنظیمات برچسب سفید ذخیره شد."
+
+#: src/components/settings/WhiteLabel.jsx:64
+msgid "Failed to save settings."
+msgstr "ذخیره تنظیمات انجام نشد."
+
+#: src/components/settings/WhiteLabel.jsx:82
+msgid "White Label"
+msgstr "برچسب سفید"
+
+#: src/components/settings/WhiteLabel.jsx:85-88
+msgid "Rebrand Lumora for your agency or clients."
+msgstr "لومورا را برای آژانس یا مشتریان خود تغییر برند دهید."
+
+#: src/components/settings/WhiteLabel.jsx:109
+#: src/components/settings/WhiteLabel.jsx:226-229
+msgid "Enable White Label"
+msgstr "فعال‌سازی برچسب سفید"
+
+#: src/components/settings/WhiteLabel.jsx:112-115
+msgid "Toggle to customize branding."
+msgstr "برای سفارشی‌سازی برند، تغییر وضعیت دهید."
+
+#: src/components/settings/WhiteLabel.jsx:131
+msgid "Plugin Name"
+msgstr "نام افزونه"
+
+#: src/components/settings/WhiteLabel.jsx:144-147
+msgid "Enter custom plugin name..."
+msgstr "نام دلخواه افزونه را وارد کنید..."
+
+#: src/components/settings/WhiteLabel.jsx:150-153
+msgid "Changes the plugin name displayed in the admin menu."
+msgstr "نام نمایشی افزونه را در منوی ادمین تغییر می‌دهد."
+
+#: src/components/settings/WhiteLabel.jsx:160
+msgid "Primary Color"
+msgstr "رنگ اصلی"
+
+#: src/components/settings/WhiteLabel.jsx:184-187
+msgid "Custom primary color for the admin theme."
+msgstr "رنگ اصلی دلخواه برای پوسته ادمین."
+
+#: src/components/settings/WhiteLabel.jsx:194
+msgid "Footer Text"
+msgstr "متن فوتر"
+
+#: src/components/settings/WhiteLabel.jsx:207-210
+msgid "Enter custom footer text..."
+msgstr "متن دلخواه فوتر را وارد کنید..."
+
+#: src/components/settings/WhiteLabel.jsx:213-216
+msgid "Custom text for the WordPress admin footer."
+msgstr "متن دلخواه برای فوتر ادمین وردپرس."
+
+#: src/components/settings/WhiteLabel.jsx:232-235
+msgid "Hide Lumora Branding"
+msgstr "مخفی‌سازی برند لومورا"
+
+#: src/components/settings/WhiteLabel.jsx:261
+msgid "Save Settings"
+msgstr "ذخیره تنظیمات"
+
+#: src/components/settings/Settings.jsx:19
+msgid "Loading settings..."
+msgstr "در حال بارگذاری تنظیمات..."
+
+#: src/components/settings/Settings.jsx:30
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: src/components/settings/Settings.jsx:33
+msgid "Customize your Lumora dashboard."
+msgstr "داشبورد لومورای خود را سفارشی کنید."
+
+#: src/components/settings/Settings.jsx:41
+msgid "Sidebar"
+msgstr "نوار کناری"
+
+#: src/components/settings/Settings.jsx:47
+msgid "Collapsed by default"
+msgstr "جمع‌شده به‌طور پیش‌فرض"
+
+#: src/components/settings/Settings.jsx:50-53
+msgid "Start with the sidebar collapsed on each page load."
+msgstr "نوار کناری در هر بار بارگذاری صفحه جمع‌شده باشد."
+
+#: src/components/settings/Settings.jsx:67
+msgid "General"
+msgstr "عمومی"
+
+#: src/components/settings/Settings.jsx:73
+msgid "Widgets"
+msgstr "ویجت‌ها"
+
+#: src/components/settings/Settings.jsx:76-79
+msgid "Enable or disable dashboard widgets."
+msgstr "فعال یا غیرفعال‌سازی ویجت‌های داشبورد."
+
+#: src/components/layout/Sidebar.jsx:6
+msgid "Dashboard"
+msgstr "داشبورد"
+
+#: src/components/layout/Sidebar.jsx:7
+msgid "Widgets"
+msgstr "ویجت‌ها"
+
+#: src/components/layout/Sidebar.jsx:8
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: src/components/layout/Sidebar.jsx:9
+msgid "Menu Manager"
+msgstr "مدیریت منو"
+
+#: src/components/layout/Sidebar.jsx:12
+msgid "White Label"
+msgstr "برچسب سفید"
+
+#: src/components/layout/Sidebar.jsx:34
+msgid "Main navigation"
+msgstr "ناوبری اصلی"
+
+#: src/components/layout/Sidebar.jsx:49
+msgid "Close menu"
+msgstr "بستن منو"
+
+#: src/components/layout/Sidebar.jsx:91
+msgid "Expand sidebar"
+msgstr "باز کردن نوار کناری"
+
+#: src/components/layout/Sidebar.jsx:92
+msgid "Collapse sidebar"
+msgstr "جمع کردن نوار کناری"
+
+#: src/components/layout/Header.jsx:12
+msgid "Toggle menu"
+msgstr "باز/بستن منو"
+
+#: src/components/layout/Header.jsx:42
+msgid "Search..."
+msgstr "جستجو..."
+
+#: src/components/layout/Header.jsx:54
+msgid "Light mode"
+msgstr "حالت روشن"
+
+#: src/components/layout/Header.jsx:55
+msgid "Dark mode"
+msgstr "حالت تیره"
+
+#: src/components/layout/Header.jsx:61
+msgid "A"
+msgstr "فا"
+
+#: src/components/layout/MobileNav.jsx:41
+msgid "Mobile navigation"
+msgstr "ناوبری موبایل"
+
+#: src/components/layout/MobileNav.jsx:46
+msgid "Menu"
+msgstr "منو"
+
+#: src/components/layout/MobileNav.jsx:51
+msgid "Close navigation"
+msgstr "بستن ناوبری"
+
+#: src/components/ui/Modal.jsx:72
+msgid "Close"
+msgstr "بستن"
+
+#: src/components/ui/Toast.jsx:125
+msgid "Dismiss notification"
+msgstr "رد اعلان"
+
+#: src/components/dashboard/Dashboard.jsx:64
+msgid "Dashboard"
+msgstr "داشبورد"
+
+#: src/components/dashboard/Dashboard.jsx:67
+msgid "Welcome to your Lumora dashboard."
+msgstr "به داشبورد لومورا خوش آمدید."
+
+#: src/components/dashboard/Dashboard.jsx:75
+msgid "Show System Status"
+msgstr "نمایش وضعیت سیستم"
+
+#: src/components/dashboard/WidgetGrid.jsx:63
+msgid "No widgets configured."
+msgstr "هیچ ویجتی پیکربندی نشده."
+
+#: src/components/dashboard/WidgetWrapper.jsx:30
+msgid "Loading..."
+msgstr "در حال بارگذاری..."
+
+#: src/components/dashboard/WidgetWrapper.jsx:56
+msgid "Widget"
+msgstr "ویجت"
+
+#: src/components/dashboard/WelcomeScreen.jsx:17-20
+msgid "Welcome dismissed. You can re-enable it from settings."
+msgstr "خوش‌آمدگویی رد شد. می‌توانید از تنظیمات دوباره فعال کنید."
+
+#: src/components/dashboard/WelcomeScreen.jsx:24
+msgid "Failed to dismiss welcome."
+msgstr "رد خوش‌آمدگویی انجام نشد."
+
+#: src/components/dashboard/WelcomeScreen.jsx:55
+msgid "Overview at a Glance"
+msgstr "نمای کلی در یک نگاه"
+
+#: src/components/dashboard/WelcomeScreen.jsx:56-59
+msgid "View your site stats, recent posts, and comments from one place."
+msgstr "آمار سایت، نوشته‌ها و نظرات اخیر را از یک جا مشاهده کنید."
+
+#: src/components/dashboard/WelcomeScreen.jsx:63
+msgid "Customize Your Menu"
+msgstr "منوی خود را سفارشی کنید"
+
+#: src/components/dashboard/WelcomeScreen.jsx:64-67
+msgid "Re-order, hide, or rename admin menu items to match your workflow."
+msgstr "آیتم‌های منوی ادمین را مرتب، مخفی یا تغییر نام دهید."
+
+#: src/components/dashboard/WelcomeScreen.jsx:71
+msgid "White-Label Everything"
+msgstr "برچسب سفید همه چیز"
+
+#: src/components/dashboard/WelcomeScreen.jsx:72-75
+msgid "Rebrand the admin with your custom colors, logo, and plugin name."
+msgstr "ادمین را با رنگ‌ها، لوگو و نام افزونه دلخواه خود تغییر برند دهید."
+
+#: src/components/dashboard/WelcomeScreen.jsx:79
+msgid "Command Palette"
+msgstr "پالت فرمان"
+
+#: src/components/dashboard/WelcomeScreen.jsx:80-83
+msgid "Press Ctrl+K (Cmd+K on Mac) to quickly navigate anywhere."
+msgstr "کلید Ctrl+K (Cmd+K در مک) را برای پیمایش سریع فشار دهید."
+
+#: src/components/dashboard/WelcomeScreen.jsx:92
+msgid "Welcome to Lumora"
+msgstr "به لومورا خوش آمدید"
+
+#: src/components/dashboard/WelcomeScreen.jsx:94-97
+msgid "Your all-in-one WordPress admin experience, reimagined."
+msgstr "تجربه همه‌کاره ادمین وردپرس، بازتعریف شده."
+
+#: src/components/dashboard/WelcomeScreen.jsx:123
+msgid "Dismissing…"
+msgstr "در حال رد..."
+
+#: src/components/dashboard/WelcomeScreen.jsx:124
+msgid "Get Started"
+msgstr "شروع کنید"
+
+#: src/components/dashboard/SystemStatus.jsx:16
+#: src/components/widgets/SystemWidget.jsx:41
+msgid "PHP"
+msgstr "PHP"
+
+#: src/components/dashboard/SystemStatus.jsx:17
+msgid "WordPress"
+msgstr "وردپرس"
+
+#: src/components/dashboard/SystemStatus.jsx:18
+msgid "Server"
+msgstr "سرور"
+
+#: src/components/dashboard/SystemStatus.jsx:35
+msgid "Loading system status…"
+msgstr "در حال بارگذاری وضعیت سیستم..."
+
+#: src/components/dashboard/SystemStatus.jsx:48
+#: src/components/dashboard/SystemStatus.jsx:71
+msgid "Version"
+msgstr "نسخه"
+
+#: src/components/dashboard/SystemStatus.jsx:50
+#: src/components/dashboard/SystemStatus.jsx:79
+msgid "Memory Limit"
+msgstr "محدودیت حافظه"
+
+#: src/components/dashboard/SystemStatus.jsx:54
+msgid "Max Execution"
+msgstr "حداکثر زمان اجرا"
+
+#: src/components/dashboard/SystemStatus.jsx:57
+msgid "%s sec"
+msgstr "%s ثانیه"
+
+#: src/components/dashboard/SystemStatus.jsx:62
+msgid "Upload Max"
+msgstr "حداکثر آپلود"
+
+#: src/components/dashboard/SystemStatus.jsx:65
+msgid "Post Max"
+msgstr "حداکثر ارسال"
+
+#: src/components/dashboard/SystemStatus.jsx:73
+msgid "Multisite"
+msgstr "چندسایته"
+
+#: src/components/dashboard/SystemStatus.jsx:75
+msgid "Yes"
+msgstr "بله"
+
+#: src/components/dashboard/SystemStatus.jsx:76
+msgid "No"
+msgstr "خیر"
+
+#: src/components/dashboard/SystemStatus.jsx:83
+msgid "Debug Mode"
+msgstr "حالت اشکال‌زدایی"
+
+#: src/components/dashboard/SystemStatus.jsx:87
+#: src/components/dashboard/SystemStatus.jsx:95
+#: src/components/dashboard/SystemStatus.jsx:101
+msgid "Enabled"
+msgstr "فعال"
+
+#: src/components/dashboard/SystemStatus.jsx:89
+#: src/components/dashboard/SystemStatus.jsx:96
+#: src/components/dashboard/SystemStatus.jsx:102
+msgid "Disabled"
+msgstr "غیرفعال"
+
+#: src/components/dashboard/SystemStatus.jsx:93
+msgid "Object Cache"
+msgstr "کش اشیاء"
+
+#: src/components/dashboard/SystemStatus.jsx:99
+msgid "WP-Cron"
+msgstr "کرون وردپرس"
+
+#: src/components/dashboard/SystemStatus.jsx:110
+msgid "Software"
+msgstr "نرم‌افزار"
+
+#: src/components/dashboard/SystemStatus.jsx:114
+msgid "Database"
+msgstr "پایگاه داده"
+
+#: src/components/dashboard/SystemStatus.jsx:117
+msgid "MySQL %s"
+msgstr "MySQL %s"
+
+#: src/components/dashboard/SystemStatus.jsx:122
+msgid "PHP Extensions"
+msgstr "افزونه‌های PHP"
+
+#: src/components/dashboard/SystemStatus.jsx:135
+msgid "System Status"
+msgstr "وضعیت سیستم"
+
+#: src/components/widgets/SystemWidget.jsx:34
+msgid "System"
+msgstr "سیستم"
+
+#: src/components/widgets/SystemWidget.jsx:49
+msgid "WP"
+msgstr "WP"
+
+#: src/components/widgets/SystemWidget.jsx:57
+msgid "Theme"
+msgstr "پوسته"
+
+#: src/components/widgets/SystemWidget.jsx:65
+msgid "Debug"
+msgstr "اشکال‌زدایی"
+
+#: src/components/widgets/SystemWidget.jsx:72
+msgid "ON"
+msgstr "روشن"
+
+#: src/components/widgets/SystemWidget.jsx:73
+msgid "OFF"
+msgstr "خاموش"
+
+#: src/components/widgets/PostsWidget.jsx:46
+msgid "No posts found."
+msgstr "نوشته‌ای یافت نشد."
+
+#: src/components/widgets/CommentsWidget.jsx:39
+msgid "Approved"
+msgstr "تأیید شده"
+
+#: src/components/widgets/CommentsWidget.jsx:47
+msgid "No comments yet."
+msgstr "هنوز نظری ثبت نشده."
+
+#: src/components/widgets/StatsWidget.jsx:30
+msgid "Comments"
+msgstr "نظرات"
+
+#: src/components/widgets/StatsWidget.jsx:31
+msgid "Users"
+msgstr "کاربران"
+
+#: src/components/widgets/StatsWidget.jsx:38
+msgid "Site Stats"
+msgstr "آمار سایت"
+
+#: src/components/command-palette/CommandPalette.jsx:8
+msgid "Pages"
+msgstr "برگه‌ها"
+
+#: src/components/command-palette/CommandPalette.jsx:9
+msgid "Media"
+msgstr "رسانه"
+
+#: src/components/command-palette/CommandPalette.jsx:10
+msgid "Users"
+msgstr "کاربران"
+
+#: src/components/command-palette/CommandPalette.jsx:11
+msgid "Commands"
+msgstr "فرمان‌ها"
+
+#: src/components/command-palette/CommandPalette.jsx:12
+msgid "WordPress"
+msgstr "وردپرس"
+
+#: src/components/command-palette/CommandPalette.jsx:232
+msgid "Command palette"
+msgstr "پالت فرمان"
+
+#: src/components/command-palette/CommandPalette.jsx:260-263
+msgid "Search posts, pages, settings..."
+msgstr "جستجوی نوشته‌ها، برگه‌ها، تنظیمات..."
+
+#: src/components/command-palette/CommandPalette.jsx:264
+msgid "Search"
+msgstr "جستجو"
+
+#: src/components/command-palette/CommandPalette.jsx:279
+msgid "Searching..."
+msgstr "در حال جستجو..."
+
+#: src/components/command-palette/CommandPalette.jsx:288
+msgid "No results found."
+msgstr "نتیجه‌ای یافت نشد."
+
+#: src/components/command-palette/CommandPalette.jsx:289
+msgid "Type to search..."
+msgstr "برای جستجو تایپ کنید..."
+
+#: src/components/command-palette/CommandPalette.jsx:454
+msgid "Navigate"
+msgstr "پیمایش"
+
+#: src/components/command-palette/CommandPalette.jsx:457
+msgid "Select"
+msgstr "انتخاب"
+
+#: src/components/command-palette/CommandPalette.jsx:460
+msgid "Close"
+msgstr "بستن"
+
+#: src/components/menu-manager/MenuManager.jsx:94
+msgid "Menu saved successfully."
+msgstr "منو با موفقیت ذخیره شد."
+
+#: src/components/menu-manager/MenuManager.jsx:102
+msgid "Failed to save menu."
+msgstr "ذخیره منو انجام نشد."
+
+#: src/components/menu-manager/MenuManager.jsx:112
+msgid "Configuration reset. Save to apply."
+msgstr "تنظیمات بازنشانی شد. برای اعمال ذخیره کنید."
+
+#: src/components/menu-manager/MenuManager.jsx:132
+msgid "Menu Manager"
+msgstr "مدیریت منو"
+
+#: src/components/menu-manager/MenuManager.jsx:135-138
+msgid "Reorder and customize your WordPress admin menu."
+msgstr "منوی ادمین وردپرس را مرتب و سفارشی کنید."
+
+#: src/components/menu-manager/MenuManager.jsx:158
+msgid "Visible Menu Items"
+msgstr "آیتم‌های منوی قابل مشاهده"
+
+#: src/components/menu-manager/MenuManager.jsx:172
+msgid "No visible items."
+msgstr "هیچ آیتم قابل مشاهده‌ای نیست."
+
+#: src/components/menu-manager/MenuManager.jsx:200-203
+msgid "Drag to reorder"
+msgstr "برای مرتب‌سازی بکشید"
+
+#: src/components/menu-manager/MenuManager.jsx:297-299
+msgid "sub"
+msgstr "زیرمنو"
+
+#: src/components/menu-manager/MenuManager.jsx:324
+msgid "Hidden Items"
+msgstr "آیتم‌های مخفی"
+
+#: src/components/menu-manager/MenuManager.jsx:368
+msgid "Apply for all users"
+msgstr "اعمال برای همه کاربران"
+
+#: src/components/menu-manager/MenuManager.jsx:374
+msgid "Reset"
+msgstr "بازنشانی"
+
+#: src/components/menu-manager/MenuManager.jsx:382
+msgid "Save Menu"
+msgstr "ذخیره منو"
+
+#: src/components/ui/Modal.jsx:72 (palette)
+msgid "Close"
+msgstr "بستن"

@@ -1,0 +1,28 @@
+{
+    "name": "lumora",
+    "version": "1.0.0",
+    "description": "Modern WordPress Admin Dashboard",
+    "license": "GPL-2.0-or-later",
+    "private": true,
+    "scripts": {
+        "build": "wp-scripts build src/index.js --output-path=build",
+        "start": "wp-scripts start src/index.js --output-path=build",
+        "lint:js": "wp-scripts lint-js src/",
+        "lint:css": "wp-scripts lint-style src/styles/",
+        "lint:php": "vendor/bin/phpcs",
+        "format:js": "wp-scripts format src/"
+    },
+    "dependencies": {
+        "@wordpress/components": "^28.0",
+        "@wordpress/data": "^10.0",
+        "@wordpress/element": "^6.0",
+        "@wordpress/i18n": "^5.0",
+        "@wordpress/icons": "^10.0",
+        "@wordpress/plugins": "^7.0",
+        "@wordpress/api-fetch": "^7.0"
+    },
+    "devDependencies": {
+        "@wordpress/scripts": "^30.0",
+        "classnames": "^2.5"
+    }
+}

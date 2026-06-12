@@ -1,0 +1,120 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+
+  # ─── Build plugin zip ───
+  build:
+    name: Build plugin ZIP
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install PHP dependencies (no dev)
+        run: composer install --no-dev --prefer-dist --no-progress
+
+      - name: Install JS dependencies
+        run: npm ci
+
+      - name: Build assets
+        run: npx wp-scripts build src/index.js src/palette.js --output-path=build
+
+      - name: Strip dev files
+        run: |
+          rm -rf node_modules .github .git .opencode-state.md Agents.md
+          rm -f composer.json composer.lock package.json package-lock.json webpack.config.js
+          rm -rf tests/ phpunit.xml.dist .phpcs.xml.dist .stylelintrc.js
+          rm -rf src/ languages/*.po
+          rm -f .gitignore .editorconfig .phpcs-cache
+
+      - name: Create ZIP
+        run: |
+          cd /tmp
+          mkdir -p lumora
+          cp -r ${{ github.workspace }}/* lumora/
+          zip -r lumora-${{ github.ref_name }}.zip lumora/
+          echo "ZIP created: lumora-${{ github.ref_name }}.zip"
+          mv lumora-${{ github.ref_name }}.zip ${{ github.workspace }}/
+
+      - name: Upload ZIP artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lumora-${{ github.ref_name }}
+          path: lumora-${{ github.ref_name }}.zip
+          retention-days: 90
+
+  # ─── GitHub Release ───
+  github_release:
+    name: GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download ZIP
+        uses: actions/download-artifact@v4
+        with:
+          name: lumora-${{ github.ref_name }}
+
+      - name: Generate release notes
+        id: notes
+        run: |
+          VERSION="${{ github.ref_name }}"
+          NOTES=$(cat CHANGELOG.md | sed -n "/^## ${VERSION}/,/^## /p" | head -n -2)
+          echo "notes<<EOF" >> $GITHUB_OUTPUT
+          echo "$NOTES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Lumora ${{ github.ref_name }}
+          body: ${{ steps.notes.outputs.notes }}
+          files: lumora-${{ github.ref_name }}.zip
+          draft: false
+          prerelease: false
+          generate_release_notes: false
+
+  # ─── WordPress.org SVN Deploy (manual trigger or tag) ───
+  wp_org:
+    name: WordPress.org Deploy
+    needs: build
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && vars.WP_ORG_SVN_ENABLED == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: WordPress.org plugin asset/readme deploy
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          BUILD_DIR: ${{ github.workspace }}
+          SLUG: lumora
+          ASSETS_DIR: .wporg

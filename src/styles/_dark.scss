@@ -1,0 +1,17 @@
+[data-lumora-theme="dark"] .lumora-app,
+.lumora-dark .lumora-app {
+  color-scheme: dark;
+}
+
+[data-lumora-theme="dark"] .lumora-card,
+.lumora-dark .lumora-card {
+  --lumora-shadow-sm: 0 1px 3px rgba(0,0,0,.2), 0 1px 2px rgba(0,0,0,.15);
+  --lumora-shadow:    0 4px 12px rgba(0,0,0,.25), 0 2px 4px rgba(0,0,0,.15);
+  --lumora-shadow-lg: 0 10px 30px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.2);
+  --lumora-shadow-xl: 0 20px 60px rgba(0,0,0,.35), 0 8px 16px rgba(0,0,0,.2);
+}
+
+[data-lumora-theme="dark"] .lumora-glass,
+.lumora-dark .lumora-glass {
+  background: rgba(30, 41, 59, 0.6);
+}

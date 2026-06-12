@@ -1,0 +1,13 @@
+vendor/
+build/
+node_modules/
+.DS_Store
+*.log
+.phpunit.result.cache
+.phpcs-cache
+composer.lock
+Agents.md
+.opencode-state.md
+*.zip
+.github/outputs/
+lumora-self-audit-protocol.md

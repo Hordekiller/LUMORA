@@ -1,0 +1,52 @@
+.lumora-app {
+  overflow-x: hidden;
+}
+
+.lumora-main {
+  transition: margin-inline-start var(--lumora-transition);
+}
+
+.lumora-main--expanded {
+  margin-inline-start: var(--lumora-sidebar-width);
+}
+
+.lumora-main--collapsed {
+  margin-inline-start: var(--lumora-sidebar-collapsed);
+}
+
+@include respond-to('md') {
+
+  .lumora-only-mobile {
+    display: none !important;
+  }
+}
+
+@include respond-to('xs') {
+
+  .lumora-main--expanded,
+  .lumora-main--collapsed {
+    margin-inline-start: 0;
+  }
+}
+
+@include respond-to('sm') {
+
+  .lumora-main--expanded,
+  .lumora-main--collapsed {
+    margin-inline-start: 0;
+  }
+}
+
+@include respond-to('lg') {
+
+  .lumora-only-desktop {
+    display: revert;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .lumora-desktop-only {
+    display: none !important;
+  }
+}

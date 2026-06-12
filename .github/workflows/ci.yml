@@ -1,0 +1,128 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  # ─── PHP: Syntax + Coding Standards + Unit Tests ───
+  php:
+    strategy:
+      matrix:
+        php: [ '7.4', '8.0', '8.2', '8.3' ]
+        wp: [ '6.0', '6.4', '6.7' ]
+        include:
+          - php: '8.3'
+            wp: 'latest'
+            coverage: true
+        exclude:
+          - php: '7.4'
+            wp: '6.7'
+      fail-fast: false
+
+    name: PHP ${{ matrix.php }} / WP ${{ matrix.wp }}
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: wordpress_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer, phpcs
+          coverage: ${{ matrix.coverage && 'pcov' || 'none' }}
+
+      - name: Validate composer
+        run: composer validate --strict
+
+      - name: Cache Composer
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: php-${{ matrix.php }}-composer-${{ hashFiles('composer.lock') }}
+
+      - name: Install PHP dependencies
+        run: composer install --no-progress --prefer-dist
+
+      - name: PHP Syntax Check
+        run: find includes/ lumora.php uninstall.php -name '*.php' -exec php -l {} \; | grep -v "No syntax errors detected"; test $? -eq 1
+
+      - name: PHPCS
+        run: vendor/bin/phpcs --standard=WordPress --extensions=php includes/ lumora.php uninstall.php --report=full --runtime-set ignore_warnings_on_exit 1
+
+      - name: Setup WP test suite
+        run: |
+          bash bin/install-wp-tests.sh wordpress_test root root 127.0.0.1:3306 ${{ matrix.wp }} true
+        shell: bash
+
+      - name: PHPUnit
+        run: vendor/bin/phpunit --configuration phpunit.xml.dist
+        env:
+          WP_TESTS_DIR: /tmp/wordpress-tests-lib
+
+  # ─── JavaScript: Lint + Build ───
+  js:
+    name: JavaScript
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install JS dependencies
+        run: npm ci
+
+      - name: ESLint
+        run: npx wp-scripts lint-js src/
+
+      - name: Stylelint
+        run: npx wp-scripts lint-style src/styles/
+
+      - name: Build
+        run: npx wp-scripts build src/index.js src/palette.js --output-path=build
+
+      - name: Verify build outputs
+        run: |
+          test -f build/admin.js
+          test -f build/admin.css
+          test -f build/palette.js
+          echo "Build artifacts verified ✅"
+
+  # ─── .org plugin readme check ───
+  readme:
+    name: Readme
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Validate readme.txt
+        run: |
+          grep -q "Tested up to:" readme.txt
+          grep -q "Stable tag:" readme.txt
+          grep -q "Contributors:" readme.txt
+          echo "readme.txt is valid ✅"

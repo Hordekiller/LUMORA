@@ -1,0 +1,46 @@
+.lumora-app :focus-visible {
+  outline: 2px solid var(--lumora-primary);
+  outline-offset: 2px;
+  border-radius: var(--lumora-radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .lumora-app,
+  .lumora-app *,
+  .lumora-app *::before,
+  .lumora-app *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.lumora-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.lumora-app [aria-busy="true"] {
+  cursor: progress;
+}
+
+.lumora-app [aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@media (forced-colors: active) {
+
+  .lumora-app .lumora-btn {
+    border: 1px solid ButtonText;
+  }
+}

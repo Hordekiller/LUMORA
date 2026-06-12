@@ -1,0 +1,57 @@
+.lumora-app {
+  font-family: var(--lumora-font-sans);
+  font-size: var(--lumora-text-base);
+  color: var(--lumora-text);
+}
+
+.lumora-heading {
+  font-weight: 700;
+  line-height: var(--lumora-leading-tight);
+  color: var(--lumora-text);
+}
+
+.lumora-heading--1 {
+  font-size: var(--lumora-text-4xl);
+}
+
+.lumora-heading--2 {
+  font-size: var(--lumora-text-3xl);
+}
+
+.lumora-heading--3 {
+  font-size: var(--lumora-text-2xl);
+}
+
+.lumora-heading--4 {
+  font-size: var(--lumora-text-xl);
+}
+
+.lumora-text {
+  font-size: var(--lumora-text-base);
+  line-height: var(--lumora-leading-relaxed);
+  color: var(--lumora-text);
+}
+
+.lumora-text--muted {
+  color: var(--lumora-text-secondary);
+}
+
+.lumora-text--sm {
+  font-size: var(--lumora-text-sm);
+}
+
+.lumora-text--xs {
+  font-size: var(--lumora-text-xs);
+}
+
+.lumora-text--mono {
+  font-family: var(--lumora-font-mono);
+}
+
+.lumora-code {
+  font-family: var(--lumora-font-mono);
+  font-size: 0.875em;
+  padding: 0.125em 0.375em;
+  background: var(--lumora-surface-2);
+  border-radius: var(--lumora-radius-sm);
+}

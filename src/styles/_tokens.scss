@@ -1,0 +1,132 @@
+:root {
+
+  /* ─── Brand Colors ─── */
+  --lumora-primary:        #6366f1;
+  --lumora-primary-light:  #818cf8;
+  --lumora-primary-dark:   #4f46e5;
+  --lumora-accent:         #06b6d4;
+  --lumora-success:        #10b981;
+  --lumora-warning:        #f59e0b;
+  --lumora-danger:         #ef4444;
+  --lumora-info:           #3b82f6;
+
+  /* ─── Neutral Scale ─── */
+  --lumora-gray-50:  #f8fafc;
+  --lumora-gray-100: #f1f5f9;
+  --lumora-gray-200: #e2e8f0;
+  --lumora-gray-300: #cbd5e1;
+  --lumora-gray-400: #94a3b8;
+  --lumora-gray-500: #64748b;
+  --lumora-gray-600: #475569;
+  --lumora-gray-700: #334155;
+  --lumora-gray-800: #1e293b;
+  --lumora-gray-900: #0f172a;
+
+  /* ─── Semantic (Light Mode) ─── */
+  --lumora-bg:             #f8fafc;
+  --lumora-surface:        #fff;
+  --lumora-surface-2:      #f1f5f9;
+  --lumora-surface-3:      #e2e8f0;
+  --lumora-border:         #e2e8f0;
+  --lumora-border-focus:   #6366f1;
+  --lumora-text:           #0f172a;
+  --lumora-text-secondary: #64748b;
+  --lumora-text-disabled:  #94a3b8;
+  --lumora-text-inverse:   #fff;
+
+  /* ─── Sidebar ─── */
+  --lumora-sidebar-bg:     #1e293b;
+  --lumora-sidebar-text:   #e2e8f0;
+  --lumora-sidebar-active: #6366f1;
+  --lumora-sidebar-hover:  rgba(99, 102, 241, 0.15);
+  --lumora-sidebar-width:  240px;
+  --lumora-sidebar-collapsed: 64px;
+
+  /* ─── Spacing Scale ─── */
+  --lumora-space-1:  0.25rem;
+  --lumora-space-2:  0.5rem;
+  --lumora-space-3:  0.75rem;
+  --lumora-space-4:  1rem;
+  --lumora-space-5:  1.25rem;
+  --lumora-space-6:  1.5rem;
+  --lumora-space-8:  2rem;
+  --lumora-space-10: 2.5rem;
+  --lumora-space-12: 3rem;
+  --lumora-space-16: 4rem;
+
+  /* ─── Border Radius ─── */
+  --lumora-radius-sm:  0.375rem;
+  --lumora-radius:     0.625rem;
+  --lumora-radius-lg:  1rem;
+  --lumora-radius-xl:  1.5rem;
+  --lumora-radius-full: 9999px;
+
+  /* ─── Shadows ─── */
+  --lumora-shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --lumora-shadow:    0 4px 12px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.04);
+  --lumora-shadow-lg: 0 10px 30px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  --lumora-shadow-xl: 0 20px 60px rgba(0,0,0,.16), 0 8px 16px rgba(0,0,0,.08);
+  --lumora-shadow-primary: 0 4px 16px rgba(99,102,241,.35);
+
+  /* ─── Typography ─── */
+  --lumora-font-sans: 'Inter', -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif;
+  --lumora-font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  --lumora-text-xs:   clamp(0.6875rem, 0.65rem + 0.2vw,  0.75rem);
+  --lumora-text-sm:   clamp(0.8125rem, 0.78rem + 0.25vw, 0.875rem);
+  --lumora-text-base: clamp(0.875rem,  0.84rem + 0.3vw,  1rem);
+  --lumora-text-lg:   clamp(1rem,      0.95rem + 0.4vw,  1.125rem);
+  --lumora-text-xl:   clamp(1.125rem,  1.05rem + 0.5vw,  1.25rem);
+  --lumora-text-2xl:  clamp(1.25rem,   1.15rem + 0.7vw,  1.5rem);
+  --lumora-text-3xl:  clamp(1.5rem,    1.3rem + 1vw,    2rem);
+  --lumora-text-4xl:  clamp(1.875rem,  1.5rem + 1.5vw,  2.5rem);
+
+  --lumora-leading-tight:  1.25;
+  --lumora-leading-snug:   1.375;
+  --lumora-leading-normal: 1.5;
+  --lumora-leading-relaxed:1.625;
+
+  /* ─── Transitions ─── */
+  --lumora-transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --lumora-transition:        250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --lumora-transition-slow:  400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --lumora-transition-spring: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ─── Z-Index Scale ─── */
+  --lumora-z-base:    1;
+  --lumora-z-dropdown: 100;
+  --lumora-z-sticky:  200;
+  --lumora-z-overlay: 300;
+  --lumora-z-modal:   400;
+  --lumora-z-palette: 500;
+  --lumora-z-toast:   600;
+}
+
+/* ─── Dark Mode ─── */
+[data-lumora-theme="dark"],
+.lumora-dark {
+  --lumora-bg:             #0f172a;
+  --lumora-surface:        #1e293b;
+  --lumora-surface-2:      #263348;
+  --lumora-surface-3:      #334155;
+  --lumora-border:         #334155;
+  --lumora-text:           #f1f5f9;
+  --lumora-text-secondary: #94a3b8;
+  --lumora-text-disabled:  #64748b;
+  --lumora-sidebar-bg:     #0f172a;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  :root:not([data-lumora-theme="light"]) {
+    --lumora-bg:             #0f172a;
+    --lumora-surface:        #1e293b;
+    --lumora-surface-2:      #263348;
+    --lumora-surface-3:      #334155;
+    --lumora-border:         #334155;
+    --lumora-text:           #f1f5f9;
+    --lumora-text-secondary: #94a3b8;
+    --lumora-text-disabled:  #64748b;
+    --lumora-sidebar-bg:     #0f172a;
+  }
+}

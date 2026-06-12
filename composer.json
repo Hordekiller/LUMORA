@@ -1,0 +1,29 @@
+{
+    "name": "lumora/lumora",
+    "description": "Modern WordPress Admin Dashboard",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Lumora Team"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Lumora\\": "includes/"
+        }
+    },
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3.0",
+        "phpunit/phpunit": "^9.0",
+        "brain/monkey": "^2.6"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

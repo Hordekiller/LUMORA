@@ -1,0 +1,46 @@
+.lumora-app,
+.lumora-app *,
+.lumora-app *::before,
+.lumora-app *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.lumora-app {
+  line-height: var(--lumora-leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.lumora-app img,
+.lumora-app svg,
+.lumora-app video {
+  display: block;
+  max-width: 100%;
+}
+
+.lumora-app button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+}
+
+.lumora-app a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.lumora-app ul,
+.lumora-app ol {
+  list-style: none;
+}
+
+.lumora-app input,
+.lumora-app textarea,
+.lumora-app select {
+  font: inherit;
+  color: inherit;
+}

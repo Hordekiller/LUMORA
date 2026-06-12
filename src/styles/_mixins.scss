@@ -1,0 +1,67 @@
+@use 'sass:map';
+
+$bp: (
+  'xs':  320px,
+  'sm':  480px,
+  'md':  768px,
+  'lg':  1024px,
+  'xl':  1280px,
+  '2xl': 1536px
+);
+
+@mixin respond-to($bp-name) {
+
+  @media (min-width: map.get($bp, $bp-name)) { @content; }
+}
+
+@mixin container($name, $size: inline-size) {
+  container-name: #{$name};
+  container-type: #{$size};
+}
+
+@mixin cq($name, $condition) {
+
+  @container #{$name} (#{$condition}) { @content; }
+}
+
+@function fluid($min, $max, $min-vw: 320px, $max-vw: 1280px) {
+  $slope: ($max - $min) / ($max-vw - $min-vw);
+  $intercept: $min - $slope * $min-vw;
+
+  @return clamp(#{$min}, #{$intercept + ($slope * 100vw)}, #{$max});
+}
+
+@mixin touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+@mixin focus-ring {
+  outline: 2px solid var(--lumora-primary);
+  outline-offset: 2px;
+  border-radius: var(--lumora-radius-sm);
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin glassmorphism($blur: 12px, $alpha: 0.08) {
+  background: rgba(255, 255, 255, $alpha);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+}
+
+@mixin rtl-prop($prop, $ltr-val, $rtl-val) {
+  #{$prop}: $ltr-val;
+
+  [dir="rtl"] & { #{$prop}: $rtl-val; }
+}
