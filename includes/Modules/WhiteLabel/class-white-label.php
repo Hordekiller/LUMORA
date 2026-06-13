@@ -19,6 +19,13 @@ defined( 'ABSPATH' ) || exit;
 class White_Label {
 
 	/**
+	 * REST namespace.
+	 *
+	 * @var string
+	 */
+	private string $namespace = 'lumora/v1';
+
+	/**
 	 * Singleton instance.
 	 *
 	 * @var White_Label|null
@@ -47,6 +54,80 @@ class White_Label {
 		add_filter( 'lumora_plugin_name', array( $this, 'filter_plugin_name' ) );
 		add_filter( 'admin_footer_text', array( $this, 'filter_footer_text' ), 100 );
 		add_action( 'admin_head', array( $this, 'inject_custom_css' ), 100 );
+		add_action( 'rest_api_init', array( $this, 'register_routes' ) );
+	}
+
+	/**
+	 * Register REST routes.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function register_routes(): void {
+		register_rest_route(
+			$this->namespace,
+			'/white-label',
+			array(
+				array(
+					'methods'             => \WP_REST_Server::READABLE,
+					'callback'            => array( $this, 'get_config_rest' ),
+					'permission_callback' => array( $this, 'check_permission' ),
+				),
+				array(
+					'methods'             => \WP_REST_Server::EDITABLE,
+					'callback'            => array( $this, 'save_config_rest' ),
+					'permission_callback' => array( $this, 'check_permission' ),
+				),
+			)
+		);
+	}
+
+	/**
+	 * REST permission check.
+	 *
+	 * @since 1.0.0
+	 * @return bool
+	 */
+	public function check_permission(): bool {
+		return current_user_can( 'manage_options' );
+	}
+
+	/**
+	 * Get white label config via REST.
+	 *
+	 * @since 1.0.0
+	 * @return \WP_REST_Response
+	 */
+	public function get_config_rest(): \WP_REST_Response {
+		return new \WP_REST_Response( $this->get_config(), 200 );
+	}
+
+	/**
+	 * Save white label config via REST.
+	 *
+	 * @since 1.0.0
+	 * @param \WP_REST_Request $request Request object.
+	 * @return \WP_REST_Response
+	 */
+	public function save_config_rest( \WP_REST_Request $request ): \WP_REST_Response {
+		$params = $request->get_json_params();
+
+		if ( empty( $params ) || ! is_array( $params ) ) {
+			return new \WP_REST_Response(
+				array( 'message' => __( 'Invalid request body.', 'lumora' ) ),
+				400
+			);
+		}
+
+		$this->save_config( $params );
+
+		return new \WP_REST_Response(
+			array(
+				'message' => __( 'White label settings saved.', 'lumora' ),
+				'config'  => $this->get_config(),
+			),
+			200
+		);
 	}
 
 	/**

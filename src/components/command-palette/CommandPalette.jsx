@@ -45,7 +45,9 @@ const CommandPalette = ( { isOpen, onClose, onCommand } ) => {
 				];
 				setStaticItems( items );
 			} )
-			.catch( () => {} );
+			.catch( () => {
+				setStaticItems( [] );
+			} );
 	}, [ isOpen ] );
 
 	useEffect( () => {

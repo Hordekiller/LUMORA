@@ -13,18 +13,16 @@ const WhiteLabel = () => {
 	const [ message, setMessage ] = useState( null );
 
 	useEffect( () => {
-		apiFetch( { path: '/lumora/v1/settings' } )
-			.then( ( settings ) => {
+		apiFetch( { path: '/lumora/v1/white-label' } )
+			.then( ( data ) => {
 				setConfig( {
-					enabled:
-						settings?.white_label_enabled === '1' ||
-						settings?.white_label_enabled === true,
-					plugin_name: settings?.white_label_plugin_name || '',
-					primary_color: settings?.white_label_primary_color || '',
-					footer_text: settings?.white_label_footer_text || '',
+					enabled: data?.enabled === true || data?.enabled === '1',
+					plugin_name: data?.plugin_name || '',
+					primary_color: data?.primary_color || '',
+					footer_text: data?.footer_text || '',
 					hide_branding:
-						settings?.white_label_hide_branding === '1' ||
-						settings?.white_label_hide_branding === true,
+						data?.hide_branding === true ||
+						data?.hide_branding === '1',
 				} );
 				setIsLoading( false );
 			} )
@@ -40,14 +38,14 @@ const WhiteLabel = () => {
 		setMessage( null );
 
 		apiFetch( {
-			path: '/lumora/v1/settings',
+			path: '/lumora/v1/white-label',
 			method: 'POST',
 			data: {
-				white_label_enabled: config.enabled ? '1' : '0',
-				white_label_plugin_name: config.plugin_name,
-				white_label_primary_color: config.primary_color,
-				white_label_footer_text: config.footer_text,
-				white_label_hide_branding: config.hide_branding ? '1' : '0',
+				enabled: config.enabled,
+				plugin_name: config.plugin_name,
+				primary_color: config.primary_color,
+				footer_text: config.footer_text,
+				hide_branding: config.hide_branding,
 			},
 		} )
 			.then( () => {

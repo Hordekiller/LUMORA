@@ -37,10 +37,9 @@ const MenuManager = () => {
 		setDraggedIndex( index );
 	};
 
-	const handleDragOver = ( e, index ) => {
+	const handleDragOver = ( e ) => {
 		e.preventDefault();
-		if ( draggedIndex === null || draggedIndex === index ) {
-		}
+		e.dataTransfer.dropEffect = 'move';
 	};
 
 	const handleDrop = ( e, targetIndex ) => {

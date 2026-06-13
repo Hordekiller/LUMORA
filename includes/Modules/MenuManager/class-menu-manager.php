@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 class Menu_Manager {
 
 	private const META_KEY_GLOBAL = 'lumora_menu_config';
-	private const META_KEY_USER   = 'lumora_menu_config';
+	private const META_KEY_USER   = 'lumora_menu_config_user';
 
 	/**
 	 * Singleton instance.
@@ -144,7 +144,7 @@ class Menu_Manager {
 	public function apply_custom_menu(): void {
 		$config = $this->get_config();
 
-		if ( empty( $config ) || ! isset( $config['order'] ) ) {
+		if ( empty( $config ) ) {
 			return;
 		}
 
@@ -164,10 +164,20 @@ class Menu_Manager {
 				continue;
 			}
 
-			$ordered_menu[] = $item;
+			if ( ! empty( $order ) ) {
+				$position = array_search( $id, $order, true );
+				if ( false !== $position ) {
+					$ordered_menu[ $position ] = $item;
+				} else {
+					$remaining[] = $item;
+				}
+			} else {
+				$remaining[] = $item;
+			}
 		}
 
-		$menu = $ordered_menu; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+		ksort( $ordered_menu );
+		$menu = array_merge( $ordered_menu, $remaining ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 	}
 
 	/**

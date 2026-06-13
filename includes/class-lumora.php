@@ -116,7 +116,10 @@ final class Lumora {
 	 * @return void
 	 */
 	private function load_dependencies(): void {
-		// Core classes are loaded via Composer autoloader.
+		// Dependencies loaded via Composer autoloader in lumora.php.
+		if ( ! defined( 'LUMORA_PLUGIN_DIR' ) ) {
+			define( 'LUMORA_PLUGIN_DIR', plugin_dir_path( __DIR__ ) );
+		}
 	}
 
 	/**

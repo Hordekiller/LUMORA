@@ -55,6 +55,7 @@ class Stats_Endpoint {
 		global $wpdb;
 
 		$count_posts    = wp_count_posts();
+		$count_pages    = wp_count_posts( 'page' );
 		$count_comments = wp_count_comments();
 		$count_users    = count_users();
 
@@ -71,7 +72,7 @@ class Stats_Endpoint {
 		return new \WP_REST_Response(
 			array(
 				'totalPosts'      => (int) ( $count_posts->publish ?? 0 ),
-				'totalPages'      => (int) ( $count_posts->publish ?? 0 ),
+				'totalPages'      => (int) ( $count_pages->publish ?? 0 ),
 				'totalComments'   => (int) ( $count_comments->approved ?? 0 ),
 				'pendingComments' => (int) ( $count_comments->moderated ?? 0 ),
 				'totalUsers'      => (int) ( $count_users['total_users'] ?? 0 ),

@@ -25,10 +25,9 @@ const WidgetGrid = ( { widgets, layout, onLayoutChange, isLoading } ) => {
 		setDraggedItem( id );
 	};
 
-	const handleDragOver = ( e, id ) => {
+	const handleDragOver = ( e ) => {
 		e.preventDefault();
-		if ( draggedItem === id ) {
-		}
+		e.dataTransfer.dropEffect = 'move';
 	};
 
 	const handleDrop = ( e, targetId ) => {

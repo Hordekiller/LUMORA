@@ -140,7 +140,28 @@ function PaletteModal( { onClose } ) {
 					...( d.sections || [] ),
 				] )
 			)
-			.catch( () => {} );
+			.catch( () => {
+				setStaticItems( [
+					{
+						id: 'add-post',
+						title: __( 'Add New Post', 'lumora' ),
+						action: 'lumora:go-dashboard',
+						icon: 'command',
+					},
+					{
+						id: 'add-page',
+						title: __( 'Add New Page', 'lumora' ),
+						action: 'lumora:go-dashboard',
+						icon: 'command',
+					},
+					{
+						id: 'toggle-theme',
+						title: __( 'Toggle Dark Mode', 'lumora' ),
+						action: 'lumora:toggle-theme',
+						icon: 'command',
+					},
+				] );
+			} );
 	}, [] );
 
 	useEffect( () => {
@@ -238,8 +259,24 @@ function PaletteModal( { onClose } ) {
 	const select = ( item ) => {
 		if ( item.action && item.action.startsWith( 'lumora:' ) ) {
 			const actions = {
-				'lumora:toggle-theme': () => {},
-				'lumora:toggle-sidebar': () => {},
+				'lumora:toggle-theme': () => {
+					const html = document.documentElement;
+					const current =
+						html.getAttribute( 'data-lumora-theme' ) || 'light';
+					const next = current === 'dark' ? 'light' : 'dark';
+					html.setAttribute( 'data-lumora-theme', next );
+					try {
+						window.localStorage.setItem( 'lumora-theme', next );
+					} catch ( err ) {
+						// Silently ignore storage errors.
+					}
+				},
+				'lumora:toggle-sidebar': () => {
+					const sidebar = document.querySelector( '.lumora-sidebar' );
+					if ( sidebar ) {
+						sidebar.classList.toggle( 'lumora-sidebar--collapsed' );
+					}
+				},
 				'lumora:go-dashboard': () => {
 					window.location.href =
 						window.lumoraData?.adminUrl + 'admin.php?page=lumora';
@@ -409,8 +446,10 @@ function PaletteModal( { onClose } ) {
 	);
 }
 
-function tx( strings, ...values ) {
-	return String.raw( { raw: strings }, ...values );
+function escapeHtml( str ) {
+	const div = document.createElement( 'div' );
+	div.appendChild( document.createTextNode( str ) );
+	return div.innerHTML;
 }
 
 let paletteRoot = null;

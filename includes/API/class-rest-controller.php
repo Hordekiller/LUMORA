@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  * @package Lumora
  * @since   1.0.0
  */
-class Rest_Controller {
+abstract class Rest_Controller {
 
 	/**
 	 * REST namespace.
@@ -31,9 +31,7 @@ class Rest_Controller {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function register_routes(): void {
-		// Override in subclasses.
-	}
+	abstract public function register_routes(): void;
 
 	/**
 	 * Check REST API permission.
@@ -43,5 +41,29 @@ class Rest_Controller {
 	 */
 	public function check_permission(): bool {
 		return current_user_can( 'manage_options' );
+	}
+
+	/**
+	 * Build a success response.
+	 *
+	 * @since 1.0.0
+	 * @param array $data Response data.
+	 * @param int   $status HTTP status code.
+	 * @return \WP_REST_Response
+	 */
+	protected function success( array $data = array(), int $status = 200 ): \WP_REST_Response {
+		return new \WP_REST_Response( $data, $status );
+	}
+
+	/**
+	 * Build an error response.
+	 *
+	 * @since 1.0.0
+	 * @param string $message Error message.
+	 * @param int    $status HTTP status code.
+	 * @return \WP_REST_Response
+	 */
+	protected function error( string $message, int $status = 400 ): \WP_REST_Response {
+		return new \WP_REST_Response( array( 'message' => $message ), $status );
 	}
 }

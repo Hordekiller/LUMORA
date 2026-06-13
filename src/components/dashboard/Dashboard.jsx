@@ -32,7 +32,9 @@ const Dashboard = () => {
 	useEffect( () => {
 		api.get( '/dashboard/config' )
 			.then( setConfig )
-			.catch( () => {} );
+			.catch( () => {
+				setConfig( { show_system_status: true } );
+			} );
 	}, [] );
 
 	const handleLayoutChange = ( newLayout ) => {
@@ -46,7 +48,12 @@ const Dashboard = () => {
 				show_system_status: next,
 			} );
 			setConfig( res.config );
-		} catch {}
+		} catch ( err ) {
+			setConfig( ( prev ) => ( {
+				...prev,
+				show_system_status: next,
+			} ) );
+		}
 	};
 
 	const showSysStatus = config?.show_system_status;
