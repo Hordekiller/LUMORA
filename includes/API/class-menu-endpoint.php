@@ -32,7 +32,7 @@ class Menu_Endpoint extends Rest_Controller {
 	 *
 	 * @var string
 	 */
-	private string $namespace = 'lumora/v1';
+	protected string $namespace = 'lumora/v1';
 
 	/**
 	 * Constructor.
