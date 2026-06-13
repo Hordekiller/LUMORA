@@ -36,7 +36,7 @@ body.admin.lumora-admin-global {
   }
 }
 
-/* ─── Admin Menu (Sidebar) ─── */
+/* ─── Admin Menu (Sidebar) — LTR ─── */
 #adminmenu,
 #adminmenuwrap {
   background: var(--lumora-sidebar-bg) !important;
@@ -86,7 +86,6 @@ body.admin.lumora-admin-global {
     }
   }
 
-  /* Menu icons */
   .wp-menu-image {
     color: var(--lumora-gray-400) !important;
   }
@@ -96,7 +95,6 @@ body.admin.lumora-admin-global {
     color: var(--lumora-sidebar-active) !important;
   }
 
-  /* Collapse button */
   #collapse-button {
     color: var(--lumora-gray-400) !important;
     border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -108,7 +106,19 @@ body.admin.lumora-admin-global {
   }
 }
 
-/* ─── Content Area ─── */
+/* ─── RTL: Move sidebar to right ─── */
+[dir="rtl"] #adminmenuwrap,
+[dir="rtl"] #adminmenu {
+  left: auto !important;
+  right: 0 !important;
+}
+
+[dir="rtl"] #adminmenu li .wp-submenu {
+  left: auto !important;
+  right: 100% !important;
+}
+
+/* ─── Content Area — LTR ─── */
 #wpcontent,
 #wpbody-content {
   background: var(--lumora-bg) !important;
@@ -116,6 +126,18 @@ body.admin.lumora-admin-global {
 
 #wpbody {
   background: var(--lumora-bg) !important;
+}
+
+/* ─── RTL: Content area margin on right side ─── */
+[dir="rtl"] #wpcontent {
+  margin-left: 0 !important;
+  margin-right: 160px !important;
+  padding-left: 0 !important;
+  padding-right: 20px !important;
+}
+
+[dir="rtl"] body.folded #wpcontent {
+  margin-right: 36px !important;
 }
 
 /* ─── Wrap (Admin Content) ─── */
@@ -142,20 +164,20 @@ body.admin.lumora-admin-global {
   box-shadow: var(--lumora-shadow-sm) !important;
 
   &.notice-success {
-    border-left: 4px solid var(--lumora-success) !important;
+    border-inline-start: 4px solid var(--lumora-success) !important;
   }
 
   &.notice-error,
   &.error {
-    border-left: 4px solid var(--lumora-danger) !important;
+    border-inline-start: 4px solid var(--lumora-danger) !important;
   }
 
   &.notice-warning {
-    border-left: 4px solid var(--lumora-warning) !important;
+    border-inline-start: 4px solid var(--lumora-warning) !important;
   }
 
   &.notice-info {
-    border-left: 4px solid var(--lumora-info) !important;
+    border-inline-start: 4px solid var(--lumora-info) !important;
   }
 
   p {
@@ -447,4 +469,92 @@ textarea:focus-visible,
 [tabindex]:focus-visible {
   outline: 2px solid var(--lumora-border-focus) !important;
   outline-offset: 2px !important;
+}
+
+/* ─── Lumora Active Page — Full screen React SPA ─── */
+body.lumora-active #adminmenumain,
+body.lumora-active #wpfooter,
+body.lumora-active .notice,
+body.lumora-active .update-nag,
+body.lumora-active #screen-meta-links,
+body.lumora-active #screen-meta {
+  display: none !important;
+}
+
+body.lumora-active #adminmenubody {
+  display: none !important;
+}
+
+body.lumora-active #wpcontent {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.lumora-active #wpbody-content {
+  padding-bottom: 0 !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+}
+
+html.wp-toolbar body.lumora-active {
+  padding-top: 0 !important;
+}
+
+body.lumora-active #wpbody {
+  position: static !important;
+}
+
+body.lumora-active .lumora-app {
+  min-height: 100vh;
+}
+
+body.lumora-active .wrap {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* RTL: Lumora active page */
+[dir="rtl"] body.lumora-active #wpcontent {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ─── RTL: General admin adjustments ─── */
+[dir="rtl"] .wrap {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .tablenav .alignleft {
+  float: right;
+}
+
+[dir="rtl"] .tablenav .alignright {
+  float: left;
+}
+
+[dir="rtl"] .row-actions span:not(.edit):not(.trash):not(.spam):not(.delete) {
+  display: inline;
+}
+
+/* ─── RTL: Notice borders ─── */
+[dir="rtl"] .notice-success {
+  border-inline-start: none !important;
+  border-inline-end: 4px solid var(--lumora-success) !important;
+}
+
+[dir="rtl"] .notice-error,
+[dir="rtl"] .error {
+  border-inline-start: none !important;
+  border-inline-end: 4px solid var(--lumora-danger) !important;
+}
+
+[dir="rtl"] .notice-warning {
+  border-inline-start: none !important;
+  border-inline-end: 4px solid var(--lumora-warning) !important;
+}
+
+[dir="rtl"] .notice-info {
+  border-inline-start: none !important;
+  border-inline-end: 4px solid var(--lumora-info) !important;
 }

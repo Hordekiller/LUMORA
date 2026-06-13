@@ -91,20 +91,6 @@ class Admin {
 	 */
 	public function render_dashboard(): void {
 		?>
-		<style>
-			body.lumora-active #adminmenumain,
-			body.lumora-active #wpfooter,
-			body.lumora-active .notice,
-			body.lumora-active .update-nag,
-			body.lumora-active #screen-meta-links,
-			body.lumora-active #screen-meta { display: none !important; }
-			body.lumora-active #wpcontent { margin-left: 0 !important; padding-left: 0 !important; }
-			body.lumora-active #wpbody-content { padding-bottom: 0 !important; min-height: 100vh !important; }
-			html.wp-toolbar body.lumora-active { padding-top: 0 !important; }
-			body.lumora-active #wpbody { position: static !important; }
-			body.lumora-active .lumora-app { min-height: 100vh; }
-			body.lumora-active .wrap { margin: 0 !important; }
-		</style>
 		<div id="lumora-root" class="lumora-app"></div>
 		<?php
 	}
