@@ -14,6 +14,7 @@ body.admin.lumora-admin-global {
 /* ─── Admin Bar ─── */
 #wpadminbar {
   background: var(--lumora-gray-900) !important;
+  z-index: 99999 !important;
 
   .quicklinks li a {
     color: var(--lumora-gray-300) !important;
@@ -38,8 +39,10 @@ body.admin.lumora-admin-global {
 
 /* ─── Admin Menu (Sidebar) — LTR ─── */
 #adminmenu,
-#adminmenuwrap {
+#adminmenuwrap,
+#adminmenuback {
   background: var(--lumora-sidebar-bg) !important;
+  z-index: 100001 !important;
 
   li {
     a {
@@ -150,6 +153,93 @@ body.admin.lumora-admin-global {
     font-family: var(--lumora-font-sans) !important;
     font-weight: 700 !important;
     color: var(--lumora-text) !important;
+  }
+}
+
+/* ─── Welcome Panel / Dashboard Columns ─── */
+#welcome-panel,
+.welcome-panel-content {
+  background: var(--lumora-surface) !important;
+  border-color: var(--lumora-border) !important;
+  border-radius: var(--lumora-radius) !important;
+  box-shadow: var(--lumora-shadow-sm) !important;
+  color: var(--lumora-text) !important;
+}
+
+#welcome-panel .welcome-panel-header {
+  background: var(--lumora-surface-2) !important;
+  border-color: var(--lumora-border) !important;
+  border-radius: var(--lumora-radius) var(--lumora-radius) 0 0 !important;
+  color: var(--lumora-text) !important;
+}
+
+#welcome-panel .welcome-panel-header h2 {
+  color: var(--lumora-text) !important;
+}
+
+.welcome-panel-column-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: var(--lumora-space-4) !important;
+}
+
+.welcome-panel-column {
+  background: var(--lumora-surface) !important;
+  border: 1px solid var(--lumora-border) !important;
+  border-radius: var(--lumora-radius) !important;
+  box-shadow: var(--lumora-shadow-sm) !important;
+  padding: var(--lumora-space-4) !important;
+  flex: 1 1 220px !important;
+
+  h3 {
+    color: var(--lumora-text) !important;
+    font-weight: 600 !important;
+  }
+
+  a {
+    color: var(--lumora-primary) !important;
+
+    &:hover {
+      color: var(--lumora-primary-dark) !important;
+    }
+  }
+
+  p {
+    color: var(--lumora-text-secondary) !important;
+  }
+}
+
+/* ─── WP Card Boxes (Dashboard) ─── */
+.wp-card-boxes {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: var(--lumora-space-4) !important;
+}
+
+.wp-card-box {
+  background: var(--lumora-surface) !important;
+  border: 1px solid var(--lumora-border) !important;
+  border-radius: var(--lumora-radius) !important;
+  box-shadow: var(--lumora-shadow-sm) !important;
+  padding: var(--lumora-space-4) !important;
+  flex: 1 1 200px !important;
+  transition: box-shadow var(--lumora-transition-fast) !important;
+
+  &:hover {
+    box-shadow: var(--lumora-shadow) !important;
+  }
+
+  .wp-card-box-icon {
+    color: var(--lumora-primary) !important;
+  }
+
+  .wp-card-box-name {
+    color: var(--lumora-text) !important;
+    font-weight: 600 !important;
+  }
+
+  .wp-card-box-description {
+    color: var(--lumora-text-secondary) !important;
   }
 }
 
@@ -482,6 +572,10 @@ body.lumora-active #screen-meta {
 }
 
 body.lumora-active #adminmenubody {
+  display: none !important;
+}
+
+body.lumora-active #wpadminbar {
   display: none !important;
 }
 

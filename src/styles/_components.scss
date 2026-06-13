@@ -443,7 +443,7 @@
   width: var(--lumora-sidebar-width);
   background: var(--lumora-sidebar-bg);
   color: var(--lumora-sidebar-text);
-  z-index: var(--lumora-z-sticky);
+  z-index: 100002;
   display: flex;
   flex-direction: column;
   transition: width var(--lumora-transition), transform var(--lumora-transition);
