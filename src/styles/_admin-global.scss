@@ -37,111 +37,15 @@ body.admin.lumora-admin-global {
   }
 }
 
-/* ─── Admin Menu (Sidebar) — LTR ─── */
-#adminmenu,
-#adminmenuwrap,
-#adminmenuback {
-  background: var(--lumora-sidebar-bg) !important;
-  z-index: 100001 !important;
+/* ─── Admin Menu (Legacy — Hidden, kept for reference) ─── */
+/* WP admin menu is now completely hidden and replaced by
+   the Lumora Global Sidebar rendered by admin-global.js */
 
-  li {
-    a {
-      color: var(--lumora-sidebar-text) !important;
-      transition: all var(--lumora-transition-fast);
+/* ─── RTL: Content area — handled above ─── */
 
-      &:hover,
-      &:focus {
-        background: var(--lumora-sidebar-hover) !important;
-        color: #fff !important;
-      }
+/* ─── Content Area — handled by sidebar replacement above ─── */
 
-      .wp-menu-name {
-        font-size: var(--lumora-text-sm) !important;
-      }
-    }
-
-    &.wp-has-current-submenu > a,
-    &.current > a,
-    &.wp-has-current-submenu:hover > a {
-      background: var(--lumora-sidebar-hover) !important;
-      color: var(--lumora-sidebar-active) !important;
-    }
-
-    &.wp-has-current-submenu .wp-submenu {
-      background: var(--lumora-sidebar-bg) !important;
-      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-
-      a {
-        color: var(--lumora-gray-400) !important;
-
-        &:hover {
-          color: #fff !important;
-          background: var(--lumora-sidebar-hover) !important;
-        }
-      }
-
-      .wp-submenu-head {
-        color: var(--lumora-gray-400) !important;
-        font-size: var(--lumora-text-xs) !important;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-    }
-  }
-
-  .wp-menu-image {
-    color: var(--lumora-gray-400) !important;
-  }
-
-  li.wp-has-current-submenu .wp-menu-image,
-  li.current .wp-menu-image {
-    color: var(--lumora-sidebar-active) !important;
-  }
-
-  #collapse-button {
-    color: var(--lumora-gray-400) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-
-    &:hover {
-      color: #fff !important;
-      background: var(--lumora-sidebar-hover) !important;
-    }
-  }
-}
-
-/* ─── RTL: Move sidebar to right ─── */
-[dir="rtl"] #adminmenuwrap,
-[dir="rtl"] #adminmenu {
-  left: auto !important;
-  right: 0 !important;
-}
-
-[dir="rtl"] #adminmenu li .wp-submenu {
-  left: auto !important;
-  right: 100% !important;
-}
-
-/* ─── Content Area — LTR ─── */
-#wpcontent,
-#wpbody-content {
-  background: var(--lumora-bg) !important;
-}
-
-#wpbody {
-  background: var(--lumora-bg) !important;
-}
-
-/* ─── RTL: Content area margin on right side ─── */
-[dir="rtl"] #wpcontent {
-  margin-left: 0 !important;
-  margin-right: 160px !important;
-  padding-left: 0 !important;
-  padding-right: 20px !important;
-}
-
-[dir="rtl"] body.folded #wpcontent {
-  margin-right: 36px !important;
-}
+/* ─── RTL: Content area — handled by sidebar replacement above ─── */
 
 /* ─── Wrap (Admin Content) ─── */
 .wrap {
@@ -584,17 +488,36 @@ textarea:focus-visible,
   outline-offset: 2px !important;
 }
 
+/* ─── Hide WP Admin Menu — Replace with Lumora Global Sidebar ─── */
+body.lumora-admin-global #adminmenumain,
+body.lumora-admin-global #adminmenubody,
+body.lumora-admin-global #adminmenuwrap,
+body.lumora-admin-global #adminmenuback {
+  display: none !important;
+}
+
+/* ─── Content Area — Shift for Lumora sidebar ─── */
+body.lumora-admin-global #wpcontent,
+body.lumora-admin-global #wpbody-content {
+  margin-left: 160px !important;
+  margin-right: 0 !important;
+  padding-left: 20px !important;
+}
+
+[dir="rtl"] body.lumora-admin-global #wpcontent,
+[dir="rtl"] body.lumora-admin-global #wpbody-content {
+  margin-left: 0 !important;
+  margin-right: 160px !important;
+  padding-left: 0 !important;
+  padding-right: 20px !important;
+}
+
 /* ─── Lumora Active Page — Full screen React SPA ─── */
-body.lumora-active #adminmenumain,
 body.lumora-active #wpfooter,
 body.lumora-active .notice,
 body.lumora-active .update-nag,
 body.lumora-active #screen-meta-links,
 body.lumora-active #screen-meta {
-  display: none !important;
-}
-
-body.lumora-active #adminmenubody {
   display: none !important;
 }
 
