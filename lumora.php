@@ -106,8 +106,24 @@ if ( file_exists( LUMORA_PLUGIN_DIR . 'vendor/autoload.php' ) ) {
 /**
  * Register activation and deactivation hooks.
  */
-register_activation_hook( __FILE__, array( Lumora\Activator::class, 'activate' ) );
-register_deactivation_hook( __FILE__, array( Lumora\Deactivator::class, 'deactivate' ) );
+register_activation_hook( __FILE__, 'lumora_activate' );
+register_deactivation_hook( __FILE__, 'lumora_deactivate' );
+
+/**
+ * Activation callback.
+ */
+function lumora_activate(): void {
+	require_once LUMORA_PLUGIN_DIR . 'includes/class-activator.php';
+	call_user_func( array( 'Lumora\\Activator', 'activate' ) );
+}
+
+/**
+ * Deactivation callback.
+ */
+function lumora_deactivate(): void {
+	require_once LUMORA_PLUGIN_DIR . 'includes/class-deactivator.php';
+	call_user_func( array( 'Lumora\\Deactivator', 'deactivate' ) );
+}
 
 /**
  * Bootstrap the plugin.
