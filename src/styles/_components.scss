@@ -566,12 +566,12 @@
     }
 
     &-arrow {
-      margin-left: auto;
+      margin-inline-start: auto;
       opacity: 0.5;
     }
 
     &--sub {
-      padding-left: var(--lumora-space-10);
+      padding-inline-start: var(--lumora-space-10);
       font-size: var(--lumora-text-xs);
       opacity: 0.6;
     }

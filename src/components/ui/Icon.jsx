@@ -188,9 +188,7 @@ const icons = {
 			strokeLinecap="round"
 			strokeLinejoin="round"
 		>
-			<rect x="3" y="3" width="18" height="18" rx="2" />
-			<circle cx="8.5" cy="8.5" r="1.5" />
-			<polyline points="21 15 16 10 5 21" />
+			<path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
 		</svg>
 	),
 	plugins: (
@@ -427,6 +425,171 @@ const icons = {
 			strokeLinejoin="round"
 		>
 			<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+		</svg>
+	),
+	airplane: (
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" />
+		</svg>
+	),
+	awards: (
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<circle cx="12" cy="8" r="7" />
+			<polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+		</svg>
+	),
+	bed: (
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M2 4v16" />
+			<path d="M2 8h18a2 2 0 0 1 2 2v10" />
+			<path d="M2 17h20" />
+			<path d="M6 8v9" />
+		</svg>
+	),
+	building: (
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
+			<path d="M9 22V12h6v10" />
+			<path d="M8 6h.01" />
+			<path d="M16 6h.01" />
+			<path d="M12 6h.01" />
+			<path d="M12 10h.01" />
+			<path d="M8 10h.01" />
+			<path d="M16 10h.01" />
+			<path d="M12 14h.01" />
+			<path d="M8 14h.01" />
+			<path d="M16 14h.01" />
+		</svg>
+	),
+	car: (
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-6H5.27a1 1 0 0 0-.98.8L4 9h4l-1 5h6l1-5h4l-1 5" />
+			<circle cx="7.5" cy="16.5" r="1.5" />
+			<circle cx="16.5" cy="16.5" r="1.5" />
+		</svg>
+	),
+	laptop: (
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0l1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16" />
+		</svg>
+	),
+	microphone: (
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+			<path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+			<line x1="12" y1="19" x2="12" y2="23" />
+			<line x1="8" y1="23" x2="16" y2="23" />
+		</svg>
+	),
+	migrate: (
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<polyline points="16 3 21 3 21 8" />
+			<line x1="4" y1="20" x2="21" y2="3" />
+			<polyline points="21 16 21 21 16 21" />
+			<line x1="15" y1="15" x2="21" y2="21" />
+			<line x1="4" y1="4" x2="9" y2="9" />
+		</svg>
+	),
+	palmtree: (
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4" />
+			<path d="M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-4" />
+			<path d="M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 4.24-4.24c1.96 1.96 1.8 5.28-.36 7.43" />
+			<path d="M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14" />
+		</svg>
+	),
+	pede: (
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+			<path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+			<line x1="6" y1="1" x2="6" y2="4" />
+			<line x1="10" y1="1" x2="10" y2="4" />
+			<line x1="14" y1="1" x2="14" y2="4" />
+		</svg>
+	),
+	tickets: (
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M2 9a3 3 0 0 1 0 6v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a3 3 0 0 1 0-6V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+			<path d="M13 5v2" />
+			<path d="M13 17v2" />
+			<path d="M13 11v2" />
 		</svg>
 	),
 };

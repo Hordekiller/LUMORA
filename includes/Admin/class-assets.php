@@ -169,8 +169,7 @@ class Assets {
 	private function get_admin_menu(): array {
 		global $menu, $submenu;
 
-		$items       = array();
-		$admin_url = admin_url();
+		$items = array();
 
 		if ( empty( $menu ) ) {
 			return $items;
@@ -246,7 +245,7 @@ class Assets {
 
 		foreach ( $menu as $item ) {
 			// Skip separators and empty items.
-			if ( empty( $item[0] ) || empty( $item[2] ) || 'separator' === $item[4] ) {
+			if ( empty( $item[0] ) || empty( $item[2] ) || 0 === strpos( (string) $item[4], 'separator' ) ) {
 				continue;
 			}
 
