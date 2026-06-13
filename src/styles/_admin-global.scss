@@ -1,5 +1,5 @@
-@import 'tokens';
-@import 'mixins';
+@use 'tokens';
+@use 'mixins' as *;
 
 /* ─── Lumora Global Admin Overrides ─── */
 /* Applies Lumora design system to all WordPress admin pages */

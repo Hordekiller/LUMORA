@@ -1,3 +1,5 @@
+@use 'mixins' as *;
+
 .lumora-app {
   line-height: var(--lumora-leading-normal);
 }
