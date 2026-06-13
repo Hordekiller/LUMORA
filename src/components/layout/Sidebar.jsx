@@ -1,8 +1,9 @@
+import { useState, useCallback } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import classnames from '../../utils/classnames';
 import Icon from '../ui/Icon';
 
-const menuItems = [
+const lumoraItems = [
 	{ icon: 'home', label: __( 'Dashboard', 'lumora' ), page: 'dashboard' },
 	{ icon: 'grid', label: __( 'Widgets', 'lumora' ), page: 'dashboard' },
 	{ icon: 'settings', label: __( 'Settings', 'lumora' ), page: 'settings' },
@@ -23,6 +24,18 @@ const Sidebar = ( {
 	currentPage,
 	onNavigate,
 } ) => {
+	const [ expanded, setExpanded ] = useState( null );
+	const adminMenu =
+		typeof window !== 'undefined' &&
+		window.lumoraData &&
+		window.lumoraData.adminMenu
+			? window.lumoraData.adminMenu
+			: [];
+	const toggleSub = useCallback(
+		( id ) => setExpanded( ( prev ) => ( prev === id ? null : id ) ),
+		[]
+	);
+
 	return (
 		<aside
 			className={ classnames(
@@ -56,7 +69,8 @@ const Sidebar = ( {
 
 			<nav className="lumora-sidebar__nav">
 				<ul className="lumora-sidebar__menu" role="menubar">
-					{ menuItems.map( ( item ) => (
+					{ /* Lumora items */ }
+					{ lumoraItems.map( ( item ) => (
 						<li key={ item.page } role="none">
 							<button
 								className={ classnames(
@@ -77,6 +91,84 @@ const Sidebar = ( {
 									</span>
 								) }
 							</button>
+						</li>
+					) ) }
+
+					{ adminMenu.length > 0 && (
+						<li className="lumora-sidebar__divider" role="none">
+							<hr />
+						</li>
+					) }
+
+					{ /* WordPress admin items */ }
+					{ adminMenu.map( ( item ) => (
+						<li key={ item.id } role="none">
+							{ item.sub && item.sub.length > 0 && ! collapsed ? (
+								<>
+									<button
+										className={ classnames(
+											'lumora-sidebar__link',
+											expanded === item.id &&
+												'lumora-sidebar__link--expanded'
+										) }
+										role="menuitem"
+										onClick={ () => toggleSub( item.id ) }
+										type="button"
+									>
+										<span className="lumora-sidebar__link-icon">
+											<Icon
+												name={ item.icon }
+												size={ 20 }
+											/>
+										</span>
+										<span className="lumora-sidebar__link-label">
+											{ item.title }
+										</span>
+										<span className="lumora-sidebar__link-arrow">
+											<Icon
+												name={
+													expanded === item.id
+														? 'arrow_down'
+														: 'arrow_right'
+												}
+												size={ 14 }
+											/>
+										</span>
+									</button>
+									{ expanded === item.id && (
+										<ul className="lumora-sidebar__submenu">
+											{ item.sub.map( ( sub ) => (
+												<li key={ sub.url } role="none">
+													<a
+														className="lumora-sidebar__link lumora-sidebar__link--sub"
+														role="menuitem"
+														href={ sub.url }
+													>
+														<span className="lumora-sidebar__link-label">
+															{ sub.title }
+														</span>
+													</a>
+												</li>
+											) ) }
+										</ul>
+									) }
+								</>
+							) : (
+								<a
+									className="lumora-sidebar__link"
+									role="menuitem"
+									href={ item.url }
+								>
+									<span className="lumora-sidebar__link-icon">
+										<Icon name={ item.icon } size={ 20 } />
+									</span>
+									{ ! collapsed && (
+										<span className="lumora-sidebar__link-label">
+											{ item.title }
+										</span>
+									) }
+								</a>
+							) }
 						</li>
 					) ) }
 				</ul>
