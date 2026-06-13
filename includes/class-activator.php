@@ -88,10 +88,11 @@ class Activator {
 	 */
 	private static function set_default_options(): void {
 		$defaults = array(
-			'theme'             => 'light',
-			'sidebar_collapsed' => false,
-			'widgets_enabled'   => true,
-			'command_palette'   => true,
+			'theme'               => 'light',
+			'sidebar_collapsed'   => false,
+			'widgets_enabled'     => true,
+			'command_palette'     => true,
+			'activation_redirect' => true,
 		);
 
 		foreach ( $defaults as $key => $value ) {
@@ -111,7 +112,7 @@ class Activator {
 	private static function set_capabilities(): void {
 		$role = get_role( 'administrator' );
 		if ( $role ) {
-			$role->add_cap( 'manage_lumora', true );
+			$role->add_cap( 'manage_lumora' );
 		}
 	}
 }

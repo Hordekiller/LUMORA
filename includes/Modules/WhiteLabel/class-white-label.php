@@ -89,7 +89,7 @@ class White_Label {
 	 * @return bool
 	 */
 	public function check_permission(): bool {
-		return current_user_can( 'manage_options' );
+		return current_user_can( 'manage_lumora' );
 	}
 
 	/**
@@ -235,7 +235,7 @@ class White_Label {
 		}
 
 		if ( ! empty( $css ) ) {
-			echo '<style id="lumora-white-label">' . $css . '</style>'; // phpcs:ignore WordPress.Security.EscapeOutput
+			echo '<style id="lumora-white-label">' . wp_strip_all_tags( $css ) . '</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 }

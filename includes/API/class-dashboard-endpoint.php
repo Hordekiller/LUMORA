@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
  * @package Lumora
  * @since   1.0.0
  */
-class Dashboard_Endpoint {
+class Dashboard_Endpoint extends Rest_Controller {
 
 	/**
 	 * Dashboard module instance.
@@ -155,14 +155,26 @@ class Dashboard_Endpoint {
 	 */
 	public function update_config( \WP_REST_Request $request ): \WP_REST_Response {
 		$params = $request->get_json_params();
-		$this->dashboard->save_dashboard_config( $params );
 
-		return new \WP_REST_Response(
+		if ( empty( $params ) || ! is_array( $params ) ) {
+			return $this->error( __( 'Invalid request body.', 'lumora' ), 400 );
+		}
+
+		$sanitized = array();
+		$allowed   = array( 'show_quick_actions', 'show_welcome', 'show_system_status' );
+		foreach ( $params as $key => $value ) {
+			if ( in_array( $key, $allowed, true ) ) {
+				$sanitized[ $key ] = (bool) $value;
+			}
+		}
+
+		$this->dashboard->save_dashboard_config( $sanitized );
+
+		return $this->success(
 			array(
 				'message' => __( 'Dashboard config updated.', 'lumora' ),
 				'config'  => $this->dashboard->get_dashboard_config(),
-			),
-			200
+			)
 		);
 	}
 
@@ -185,7 +197,5 @@ class Dashboard_Endpoint {
 	 * @since 1.0.0
 	 * @return bool
 	 */
-	public function check_permission(): bool {
-		return current_user_can( 'manage_options' );
-	}
+	// Inherits check_permission() from Rest_Controller.
 }

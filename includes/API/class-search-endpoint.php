@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  * @package Lumora
  * @since   1.0.0
  */
-class Search_Endpoint {
+class Search_Endpoint extends Rest_Controller {
 
 	/**
 	 * REST namespace.
@@ -131,9 +131,7 @@ class Search_Endpoint {
 	 * @since 1.0.0
 	 * @return bool
 	 */
-	public function check_permission(): bool {
-		return current_user_can( 'manage_options' );
-	}
+	// Inherits check_permission() from Rest_Controller.
 
 	/**
 	 * Search posts.

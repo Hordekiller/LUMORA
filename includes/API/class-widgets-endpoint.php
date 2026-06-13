@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
  * @package Lumora
  * @since   1.0.0
  */
-class Widgets_Endpoint {
+class Widgets_Endpoint extends Rest_Controller {
 
 	/**
 	 * Widget engine instance.
@@ -129,7 +129,5 @@ class Widgets_Endpoint {
 	 * @since 1.0.0
 	 * @return bool
 	 */
-	public function check_permission(): bool {
-		return current_user_can( 'manage_options' );
-	}
+	// Inherits check_permission() from Rest_Controller.
 }

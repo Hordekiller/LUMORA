@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  * @package Lumora
  * @since   1.0.0
  */
-class Stats_Endpoint {
+class Stats_Endpoint extends Rest_Controller {
 
 	/**
 	 * REST namespace.
@@ -93,7 +93,5 @@ class Stats_Endpoint {
 	 * @since 1.0.0
 	 * @return bool
 	 */
-	public function check_permission(): bool {
-		return current_user_can( 'manage_options' );
-	}
+	// Inherits check_permission() from Rest_Controller.
 }

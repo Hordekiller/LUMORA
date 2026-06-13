@@ -58,7 +58,7 @@ class Admin {
 		add_menu_page(
 			esc_html__( 'Lumora Dashboard', 'lumora' ),
 			esc_html__( 'Lumora', 'lumora' ),
-			'manage_options',
+			'manage_lumora',
 			'lumora',
 			array( $this, 'render_dashboard' ),
 			'data:image/svg+xml;base64,' . base64_encode( $this->get_menu_icon() ),

@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
  * @package Lumora
  * @since   1.0.0
  */
-class Settings_Endpoint {
+class Settings_Endpoint extends Rest_Controller {
 
 	/**
 	 * Settings instance.
@@ -33,6 +33,13 @@ class Settings_Endpoint {
 	 * @var string
 	 */
 	private string $namespace = 'lumora/v1';
+
+	/**
+	 * Allowed option keys that can be updated.
+	 *
+	 * @var array
+	 */
+	private array $allowed_keys = array( 'theme', 'sidebar_collapsed', 'widgets_enabled', 'command_palette' );
 
 	/**
 	 * Constructor.
@@ -98,9 +105,16 @@ class Settings_Endpoint {
 			);
 		}
 
+		$filtered = array();
 		foreach ( $params as $key => $value ) {
 			$sanitized_key = sanitize_key( $key );
-			$this->settings->set( $sanitized_key, $this->sanitize_value( $value ) );
+			if ( in_array( $sanitized_key, $this->allowed_keys, true ) ) {
+				$filtered[ $sanitized_key ] = $this->sanitize_value( $value );
+			}
+		}
+
+		foreach ( $filtered as $key => $value ) {
+			$this->settings->set( $key, $value );
 		}
 
 		return new \WP_REST_Response(
@@ -118,9 +132,7 @@ class Settings_Endpoint {
 	 * @since 1.0.0
 	 * @return bool
 	 */
-	public function check_permission(): bool {
-		return current_user_can( 'manage_options' );
-	}
+	// Inherits check_permission() from Rest_Controller.
 
 	/**
 	 * Get collection params.

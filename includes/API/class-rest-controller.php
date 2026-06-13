@@ -40,7 +40,7 @@ abstract class Rest_Controller {
 	 * @return bool
 	 */
 	public function check_permission(): bool {
-		return current_user_can( 'manage_options' );
+		return current_user_can( 'manage_lumora' );
 	}
 
 	/**

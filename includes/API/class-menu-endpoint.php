@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
  * @package Lumora
  * @since   1.0.0
  */
-class Menu_Endpoint {
+class Menu_Endpoint extends Rest_Controller {
 
 	/**
 	 * Menu manager instance.
@@ -159,7 +159,5 @@ class Menu_Endpoint {
 	 * @since 1.0.0
 	 * @return bool
 	 */
-	public function check_permission(): bool {
-		return current_user_can( 'manage_options' );
-	}
+	// Inherits check_permission() from Rest_Controller.
 }
