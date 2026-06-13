@@ -26,6 +26,10 @@ class Assets {
 	 * @return void
 	 */
 	public function enqueue_styles( string $hook_suffix ): void {
+		// Load global admin styles on ALL admin pages.
+		$this->enqueue_global_admin_styles();
+
+		// Load full admin styles only on Lumora page.
 		if ( 'toplevel_page_lumora' !== $hook_suffix ) {
 			return;
 		}
@@ -36,6 +40,26 @@ class Assets {
 		if ( file_exists( $style_file ) ) {
 			wp_enqueue_style(
 				'lumora-admin',
+				LUMORA_PLUGIN_URL . $style_path,
+				array( 'lumora-admin-global' ),
+				filemtime( $style_file )
+			);
+		}
+	}
+
+	/**
+	 * Enqueue global admin override styles on all admin pages.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	private function enqueue_global_admin_styles(): void {
+		$style_path = 'build/admin-global.css';
+		$style_file = LUMORA_PLUGIN_DIR . $style_path;
+
+		if ( file_exists( $style_file ) ) {
+			wp_enqueue_style(
+				'lumora-admin-global',
 				LUMORA_PLUGIN_URL . $style_path,
 				array(),
 				filemtime( $style_file )

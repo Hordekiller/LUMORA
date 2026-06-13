@@ -27,6 +27,17 @@ class Deactivator {
 	public static function deactivate(): void {
 		self::clear_cron_events();
 		self::remove_capabilities();
+		self::clean_options();
+	}
+
+	/**
+	 * Clean up leftover options.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	private static function clean_options(): void {
+		delete_option( 'lumora_activation_redirect' );
 	}
 
 	/**

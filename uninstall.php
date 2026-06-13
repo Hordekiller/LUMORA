@@ -16,6 +16,9 @@ $lumora_options = array(
 	'lumora_widgets_enabled',
 	'lumora_command_palette',
 	'lumora_settings',
+	'lumora_white_label',
+	'lumora_activation_redirect',
+	'lumora_recent_views',
 );
 
 foreach ( $lumora_options as $option ) {
@@ -34,3 +37,7 @@ if ( $admin_role ) {
 
 delete_metadata( 'user', 0, 'lumora_widget_layout', '', true );
 delete_metadata( 'user', 0, 'lumora_sidebar_collapsed', '', true );
+delete_metadata( 'user', 0, 'lumora_welcome_dismissed', '', true );
+delete_metadata( 'user', 0, 'lumora_dashboard_config', '', true );
+delete_metadata( 'user', 0, 'lumora_widget_config', '', true );
+delete_metadata( 'user', 0, 'lumora_menu_config_user', '', true );

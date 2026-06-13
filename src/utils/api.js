@@ -54,7 +54,10 @@ const apiFetch = async ( path, options = {} ) => {
 	if ( isGet ) {
 		setCached( cacheKey, data );
 	} else {
-		invalidateCache( path.split( '/' ).slice( 0, 2 ).join( '/' ) );
+		const parts = path.split( '/' ).filter( Boolean );
+		if ( parts.length >= 1 ) {
+			invalidateCache( '/' + parts[ 0 ] );
+		}
 	}
 
 	return data;

@@ -1,0 +1,450 @@
+@import 'tokens';
+@import 'mixins';
+
+/* ─── Lumora Global Admin Overrides ─── */
+/* Applies Lumora design system to all WordPress admin pages */
+
+/* ─── Base ─── */
+body.admin.lumora-admin-global {
+  font-family: var(--lumora-font-sans) !important;
+  background: var(--lumora-bg) !important;
+  color: var(--lumora-text) !important;
+}
+
+/* ─── Admin Bar ─── */
+#wpadminbar {
+  background: var(--lumora-gray-900) !important;
+
+  .quicklinks li a {
+    color: var(--lumora-gray-300) !important;
+
+    &:hover,
+    &:focus {
+      color: #fff !important;
+      background: rgba(255, 255, 255, 0.1) !important;
+    }
+  }
+
+  #adminbarsearch input {
+    background: var(--lumora-gray-800) !important;
+    color: var(--lumora-gray-200) !important;
+    border-color: var(--lumora-gray-700) !important;
+
+    &::placeholder {
+      color: var(--lumora-gray-500) !important;
+    }
+  }
+}
+
+/* ─── Admin Menu (Sidebar) ─── */
+#adminmenu,
+#adminmenuwrap {
+  background: var(--lumora-sidebar-bg) !important;
+
+  li {
+    a {
+      color: var(--lumora-sidebar-text) !important;
+      transition: all var(--lumora-transition-fast);
+
+      &:hover,
+      &:focus {
+        background: var(--lumora-sidebar-hover) !important;
+        color: #fff !important;
+      }
+
+      .wp-menu-name {
+        font-size: var(--lumora-text-sm) !important;
+      }
+    }
+
+    &.wp-has-current-submenu > a,
+    &.current > a,
+    &.wp-has-current-submenu:hover > a {
+      background: var(--lumora-sidebar-hover) !important;
+      color: var(--lumora-sidebar-active) !important;
+    }
+
+    &.wp-has-current-submenu .wp-submenu {
+      background: var(--lumora-sidebar-bg) !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+
+      a {
+        color: var(--lumora-gray-400) !important;
+
+        &:hover {
+          color: #fff !important;
+          background: var(--lumora-sidebar-hover) !important;
+        }
+      }
+
+      .wp-submenu-head {
+        color: var(--lumora-gray-400) !important;
+        font-size: var(--lumora-text-xs) !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+    }
+  }
+
+  /* Menu icons */
+  .wp-menu-image {
+    color: var(--lumora-gray-400) !important;
+  }
+
+  li.wp-has-current-submenu .wp-menu-image,
+  li.current .wp-menu-image {
+    color: var(--lumora-sidebar-active) !important;
+  }
+
+  /* Collapse button */
+  #collapse-button {
+    color: var(--lumora-gray-400) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+
+    &:hover {
+      color: #fff !important;
+      background: var(--lumora-sidebar-hover) !important;
+    }
+  }
+}
+
+/* ─── Content Area ─── */
+#wpcontent,
+#wpbody-content {
+  background: var(--lumora-bg) !important;
+}
+
+#wpbody {
+  background: var(--lumora-bg) !important;
+}
+
+/* ─── Wrap (Admin Content) ─── */
+.wrap {
+  font-family: var(--lumora-font-sans) !important;
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--lumora-font-sans) !important;
+    font-weight: 700 !important;
+    color: var(--lumora-text) !important;
+  }
+}
+
+/* ─── Admin Notices ─── */
+.notice,
+.updated,
+.error {
+  border-radius: var(--lumora-radius) !important;
+  border-color: var(--lumora-border) !important;
+  background: var(--lumora-surface) !important;
+  color: var(--lumora-text) !important;
+  box-shadow: var(--lumora-shadow-sm) !important;
+
+  &.notice-success {
+    border-left: 4px solid var(--lumora-success) !important;
+  }
+
+  &.notice-error,
+  &.error {
+    border-left: 4px solid var(--lumora-danger) !important;
+  }
+
+  &.notice-warning {
+    border-left: 4px solid var(--lumora-warning) !important;
+  }
+
+  &.notice-info {
+    border-left: 4px solid var(--lumora-info) !important;
+  }
+
+  p {
+    color: var(--lumora-text) !important;
+  }
+
+  .notice-dismiss {
+    color: var(--lumora-text-disabled) !important;
+
+    &:hover {
+      color: var(--lumora-text) !important;
+    }
+  }
+}
+
+/* ─── Buttons ─── */
+button,
+input[type="submit"],
+.button,
+.button-primary,
+.button-secondary,
+.components-button {
+  font-family: var(--lumora-font-sans) !important;
+  border-radius: var(--lumora-radius) !important;
+  transition: all var(--lumora-transition-fast) !important;
+}
+
+.button-primary,
+.components-button.is-primary {
+  background: var(--lumora-primary) !important;
+  border-color: var(--lumora-primary-dark) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  box-shadow: var(--lumora-shadow-sm) !important;
+
+  &:hover,
+  &:focus {
+    background: var(--lumora-primary-dark) !important;
+    border-color: var(--lumora-primary-dark) !important;
+    box-shadow: var(--lumora-shadow-primary) !important;
+  }
+
+  &:active {
+    transform: translateY(1px) !important;
+  }
+}
+
+.button-secondary,
+.components-button:not(.is-primary):not(.is-link) {
+  background: var(--lumora-surface) !important;
+  border-color: var(--lumora-border) !important;
+  color: var(--lumora-text) !important;
+  box-shadow: var(--lumora-shadow-sm) !important;
+
+  &:hover,
+  &:focus {
+    background: var(--lumora-surface-2) !important;
+    border-color: var(--lumora-gray-400) !important;
+    color: var(--lumora-text) !important;
+  }
+}
+
+/* ─── Form Elements ─── */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="url"],
+input[type="date"],
+textarea,
+select,
+.components-text-control__input,
+.components-select-control__input {
+  font-family: var(--lumora-font-sans) !important;
+  border-radius: var(--lumora-radius) !important;
+  border-color: var(--lumora-border) !important;
+  background: var(--lumora-surface) !important;
+  color: var(--lumora-text) !important;
+  transition: border-color var(--lumora-transition-fast) !important;
+
+  &:focus {
+    border-color: var(--lumora-border-focus) !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--lumora-primary) 20%, transparent) !important;
+  }
+
+  &::placeholder {
+    color: var(--lumora-text-disabled) !important;
+  }
+}
+
+/* ─── Tables ─── */
+table.wp-list-table,
+.components-tools-panel {
+  border-color: var(--lumora-border) !important;
+
+  thead th {
+    background: var(--lumora-surface-2) !important;
+    border-color: var(--lumora-border) !important;
+    color: var(--lumora-text-secondary) !important;
+    font-weight: 600 !important;
+    font-size: var(--lumora-text-xs) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  tbody td {
+    border-color: var(--lumora-border) !important;
+    color: var(--lumora-text) !important;
+    font-size: var(--lumora-text-sm) !important;
+  }
+
+  tbody tr:hover {
+    background: var(--lumora-surface-2) !important;
+  }
+
+  tbody tr.alternate {
+    background: var(--lumora-surface) !important;
+  }
+
+  .row-actions a {
+    color: var(--lumora-text-secondary) !important;
+    font-size: var(--lumora-text-xs) !important;
+
+    &:hover {
+      color: var(--lumora-primary) !important;
+    }
+  }
+}
+
+/* ─── Cards / Metaboxes ─── */
+.postbox,
+.metabox-holder .postbox {
+  background: var(--lumora-surface) !important;
+  border: 1px solid var(--lumora-border) !important;
+  border-radius: var(--lumora-radius) !important;
+  box-shadow: var(--lumora-shadow-sm) !important;
+
+  .hndle,
+  .postbox-header {
+    background: var(--lumora-surface-2) !important;
+    border-color: var(--lumora-border) !important;
+    color: var(--lumora-text) !important;
+    font-weight: 600 !important;
+    border-radius: var(--lumora-radius) var(--lumora-radius) 0 0 !important;
+    padding: var(--lumora-space-3) var(--lumora-space-4) !important;
+  }
+
+  .inside {
+    padding: var(--lumora-space-4) !important;
+  }
+}
+
+/* ─── Screen Meta ─── */
+#screen-meta-links,
+#screen-meta {
+  background: var(--lumora-surface) !important;
+  border-color: var(--lumora-border) !important;
+}
+
+/* ─── Footer ─── */
+#wpfooter {
+  background: var(--lumora-surface-2) !important;
+  border-top: 1px solid var(--lumora-border) !important;
+  color: var(--lumora-text-disabled) !important;
+}
+
+/* ─── Pagination ─── */
+.tablenav .pages,
+.pagination {
+  a,
+  span {
+    color: var(--lumora-text-secondary) !important;
+  }
+
+  a:hover {
+    color: var(--lumora-primary) !important;
+    background: var(--lumora-surface-2) !important;
+  }
+
+  span.current {
+    background: var(--lumora-primary) !important;
+    color: #fff !important;
+    border-color: var(--lumora-primary) !important;
+  }
+}
+
+/* ─── Tag / Category Boxes ─── */
+.tagchecklist .tag-added,
+.post-tag .tagchecklist {
+  a {
+    color: var(--lumora-text-secondary) !important;
+
+    &:hover {
+      color: var(--lumora-danger) !important;
+    }
+  }
+}
+
+/* ─── Plugins / Themes Page ─── */
+.plugin-card,
+.theme {
+  background: var(--lumora-surface) !important;
+  border: 1px solid var(--lumora-border) !important;
+  border-radius: var(--lumora-radius) !important;
+  box-shadow: var(--lumora-shadow-sm) !important;
+
+  &:hover {
+    box-shadow: var(--lumora-shadow) !important;
+  }
+
+  .plugin-card-name,
+  .theme-name {
+    color: var(--lumora-text) !important;
+  }
+
+  .plugin-card-desc,
+  .theme-desc {
+    color: var(--lumora-text-secondary) !important;
+  }
+}
+
+/* ─── WP Components (Gutenberg-style) ─── */
+.components-panel {
+  background: var(--lumora-surface) !important;
+  border-color: var(--lumora-border) !important;
+}
+
+.components-panel__body {
+  border-color: var(--lumora-border) !important;
+
+  .components-panel__body-title {
+    color: var(--lumora-text) !important;
+  }
+}
+
+.components-base-control__label,
+.components-input-control__label {
+  color: var(--lumora-text-secondary) !important;
+  font-size: var(--lumora-text-sm) !important;
+}
+
+.components-toggle-control .components-base-control__field {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* ─── Dropdown Menus ─── */
+.components-dropdown-menu__menu,
+.autocomplete,
+.wp-picker-container .wp-color-picker {
+  background: var(--lumora-surface) !important;
+  border-color: var(--lumora-border) !important;
+  border-radius: var(--lumora-radius) !important;
+  box-shadow: var(--lumora-shadow-lg) !important;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--lumora-surface-2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--lumora-gray-400);
+  border-radius: var(--lumora-radius-full);
+
+  &:hover {
+    background: var(--lumora-gray-500);
+  }
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: color-mix(in srgb, var(--lumora-primary) 25%, transparent);
+  color: var(--lumora-text);
+}
+
+/* ─── Focus Ring (Global) ─── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--lumora-border-focus) !important;
+  outline-offset: 2px !important;
+}

@@ -23,6 +23,10 @@ const Dashboard = () => {
 		( select ) => select( 'lumora/widgets' ).isLoading(),
 		[]
 	);
+	const settings = useSelect(
+		( select ) => select( 'lumora/settings' ).getSettings(),
+		[]
+	);
 	const { fetchWidgets, saveLayout } = useDispatch( 'lumora/widgets' );
 
 	useEffect( () => {
@@ -57,6 +61,7 @@ const Dashboard = () => {
 	};
 
 	const showSysStatus = config?.show_system_status;
+	const widgetsEnabled = settings?.widgets_enabled !== false;
 
 	return (
 		<div className="lumora-dashboard">
@@ -85,12 +90,14 @@ const Dashboard = () => {
 
 			{ showSysStatus && <SystemStatus /> }
 
-			<WidgetGrid
-				widgets={ Object.values( widgets ) }
-				layout={ layout }
-				onLayoutChange={ handleLayoutChange }
-				isLoading={ isLoading }
-			/>
+			{ widgetsEnabled && (
+				<WidgetGrid
+					widgets={ Object.values( widgets ) }
+					layout={ layout }
+					onLayoutChange={ handleLayoutChange }
+					isLoading={ isLoading }
+				/>
+			) }
 		</div>
 	);
 };

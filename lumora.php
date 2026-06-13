@@ -47,17 +47,17 @@ if ( version_compare( PHP_VERSION, '7.4', '<' ) ) {
  */
 global $wp_version;
 if ( version_compare( $wp_version, '6.0', '<' ) ) {
-		add_action(
-			'admin_notices',
-			function () use ( $wp_version ) {
-				$message = sprintf(
-					/* translators: %s: WordPress version */
-					esc_html__( 'Lumora requires WordPress 6.0 or higher. You are running %s.', 'lumora' ),
-					$wp_version
-				);
-				printf( '<div class="notice notice-error"><p>%s</p></div>', esc_html( $message ) );
-			}
-		);
+	add_action(
+		'admin_notices',
+		function () use ( $wp_version ) {
+			$message = sprintf(
+				/* translators: %s: WordPress version */
+				esc_html__( 'Lumora requires WordPress 6.0 or higher. You are running %s.', 'lumora' ),
+				$wp_version
+			);
+			printf( '<div class="notice notice-error"><p>%s</p></div>', esc_html( $message ) );
+		}
+	);
 	return;
 }
 

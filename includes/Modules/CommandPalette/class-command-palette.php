@@ -53,8 +53,16 @@ class Command_Palette {
 	 */
 	public function render_commands_script(): void {
 		$commands = $this->get_static_commands();
+		$handle   = wp_script_is( 'lumora-admin', 'registered' )
+			? 'lumora-admin'
+			: 'lumora-palette';
+
+		if ( ! wp_script_is( $handle, 'registered' ) ) {
+			return;
+		}
+
 		wp_add_inline_script(
-			'lumora-admin',
+			$handle,
 			'window.lumoraCommands = ' . wp_json_encode( $commands ) . ';',
 			'before'
 		);

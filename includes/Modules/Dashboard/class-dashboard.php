@@ -155,6 +155,12 @@ class Dashboard {
 		);
 	}
 
+	/**
+	 * Get dashboard configuration.
+	 *
+	 * @since 1.0.0
+	 * @return array
+	 */
 	public function get_dashboard_config(): array {
 		$defaults = array(
 			'show_quick_actions' => true,
@@ -170,6 +176,13 @@ class Dashboard {
 		return wp_parse_args( $config, $defaults );
 	}
 
+	/**
+	 * Save dashboard configuration.
+	 *
+	 * @since 1.0.0
+	 * @param array $config Configuration data.
+	 * @return bool
+	 */
 	public function save_dashboard_config( array $config ): bool {
 		$existing     = $this->get_dashboard_config();
 		$allowed_keys = array( 'show_quick_actions', 'show_welcome', 'show_system_status' );
@@ -183,6 +196,12 @@ class Dashboard {
 		return (bool) update_user_meta( get_current_user_id(), 'lumora_dashboard_config', $existing );
 	}
 
+	/**
+	 * Redirect to Lumora dashboard on first activation.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
 	public function maybe_redirect_on_first_activation(): void {
 		if ( ! get_option( 'lumora_activation_redirect', false ) ) {
 			return;
@@ -202,6 +221,13 @@ class Dashboard {
 		exit;
 	}
 
+	/**
+	 * Format memory size to human-readable string.
+	 *
+	 * @since 1.0.0
+	 * @param string $memory Memory value from PHP ini.
+	 * @return string
+	 */
 	private function format_memory( string $memory ): string {
 		if ( preg_match( '/^(\d+)([KMG])$/i', $memory, $matches ) ) {
 			$units = array(

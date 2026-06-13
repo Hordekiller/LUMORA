@@ -74,6 +74,8 @@ class Admin {
 	 * @return string
 	 */
 	public function add_body_class( string $classes ): string {
+		$classes .= ' lumora-admin-global';
+
 		$screen = get_current_screen();
 		if ( $screen && 'toplevel_page_lumora' === $screen->id ) {
 			$classes .= ' lumora-active';
