@@ -26,7 +26,7 @@ const Toggle = ( {
 				type="checkbox"
 				className="lumora-toggle__input"
 				checked={ checked }
-				onChange={ onChange }
+				onChange={ ( e ) => onChange( e.target.checked ) }
 				disabled={ disabled }
 				aria-checked={ checked }
 			/>

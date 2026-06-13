@@ -110,7 +110,19 @@ class Widgets_Endpoint extends Rest_Controller {
 			if ( ! is_array( $existing ) ) {
 				$existing = array();
 			}
-			$merged = array_merge( $existing, $params['config'] );
+			$sanitized_config = array();
+			foreach ( $params['config'] as $key => $value ) {
+				$sanitized_key = sanitize_key( $key );
+				if ( is_array( $value ) ) {
+					$sanitized_config[ $sanitized_key ] = array_map(
+						'sanitize_text_field',
+						$value
+					);
+				} else {
+					$sanitized_config[ $sanitized_key ] = sanitize_text_field( $value );
+				}
+			}
+			$merged = array_merge( $existing, $sanitized_config );
 			update_user_meta( $user_id, 'lumora_widget_config', $merged );
 		}
 

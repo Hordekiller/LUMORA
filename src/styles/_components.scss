@@ -110,6 +110,35 @@
   animation: lumora-spin 0.6s linear infinite;
 }
 
+/* ─── Error Boundary ─── */
+.lumora-error-boundary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: var(--lumora-space-8);
+}
+
+.lumora-error-boundary__content {
+  text-align: center;
+  background: var(--lumora-surface);
+  border: 1px solid var(--lumora-border);
+  border-radius: var(--lumora-radius-lg);
+  padding: var(--lumora-space-8);
+  box-shadow: var(--lumora-shadow);
+  max-width: 420px;
+
+  h2 {
+    color: var(--lumora-text);
+    margin: 0 0 var(--lumora-space-2);
+  }
+
+  p {
+    color: var(--lumora-text-secondary);
+    margin: 0 0 var(--lumora-space-6);
+  }
+}
+
 /* ─── Card ─── */
 .lumora-card {
   background: var(--lumora-surface);

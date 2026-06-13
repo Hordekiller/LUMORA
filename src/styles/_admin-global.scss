@@ -630,25 +630,3 @@ body.lumora-active .wrap {
 [dir="rtl"] .row-actions span:not(.edit):not(.trash):not(.spam):not(.delete) {
   display: inline;
 }
-
-/* ─── RTL: Notice borders ─── */
-[dir="rtl"] .notice-success {
-  border-inline-start: none !important;
-  border-inline-end: 4px solid var(--lumora-success) !important;
-}
-
-[dir="rtl"] .notice-error,
-[dir="rtl"] .error {
-  border-inline-start: none !important;
-  border-inline-end: 4px solid var(--lumora-danger) !important;
-}
-
-[dir="rtl"] .notice-warning {
-  border-inline-start: none !important;
-  border-inline-end: 4px solid var(--lumora-warning) !important;
-}
-
-[dir="rtl"] .notice-info {
-  border-inline-start: none !important;
-  border-inline-end: 4px solid var(--lumora-info) !important;
-}

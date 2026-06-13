@@ -136,7 +136,7 @@ class Assets {
 			$asset = require $asset_file;
 			$deps  = (array) $asset['dependencies'];
 		} else {
-			$deps = array( 'wp-element', 'wp-i18n', 'wp-api-fetch' );
+			$deps = array( 'wp-element', 'wp-i18n', 'wp-api-fetch', 'wp-components', 'wp-primitives' );
 		}
 
 		wp_enqueue_script(

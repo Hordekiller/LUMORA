@@ -64,45 +64,49 @@ const CommandPalette = ( { isOpen, onClose, onCommand } ) => {
 			keys: [ 'title' ],
 		} );
 
-		apiFetch( {
-			path: `/lumora/v1/search?q=${ encodeURIComponent( query ) }`,
-		} )
-			.then( ( data ) => {
-				const remote = [];
-				for ( const [ group, items ] of Object.entries(
-					data.results || {}
-				) ) {
-					for ( const item of items ) {
-						remote.push( { ...item, group } );
-					}
-				}
-
-				const merged = [
-					...localResults.map( ( r ) => ( {
-						...r,
-						_source: 'local',
-						group: r.type || 'commands',
-					} ) ),
-					...remote.map( ( r ) => ( {
-						...r,
-						_source: 'remote',
-						group: r.type || 'results',
-					} ) ),
-				];
-
-				setSearchResults( merged );
-				setIsSearching( false );
+		const timer = setTimeout( () => {
+			apiFetch( {
+				path: `/lumora/v1/search?q=${ encodeURIComponent( query ) }`,
 			} )
-			.catch( () => {
-				setSearchResults(
-					localResults.map( ( r ) => ( {
-						...r,
-						_source: 'local',
-						group: r.type || 'commands',
-					} ) )
-				);
-				setIsSearching( false );
-			} );
+				.then( ( data ) => {
+					const remote = [];
+					for ( const [ group, items ] of Object.entries(
+						data.results || {}
+					) ) {
+						for ( const item of items ) {
+							remote.push( { ...item, group } );
+						}
+					}
+
+					const merged = [
+						...localResults.map( ( r ) => ( {
+							...r,
+							_source: 'local',
+							group: r.type || 'commands',
+						} ) ),
+						...remote.map( ( r ) => ( {
+							...r,
+							_source: 'remote',
+							group: r.type || 'results',
+						} ) ),
+					];
+
+					setSearchResults( merged );
+					setIsSearching( false );
+				} )
+				.catch( () => {
+					setSearchResults(
+						localResults.map( ( r ) => ( {
+							...r,
+							_source: 'local',
+							group: r.type || 'commands',
+						} ) )
+					);
+					setIsSearching( false );
+				} );
+		}, 300 );
+
+		return () => clearTimeout( timer );
 	}, [ query, staticItems ] );
 
 	const groupedResults = useCallback( () => {

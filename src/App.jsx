@@ -9,9 +9,9 @@ import { useSelect, useDispatch } from '@wordpress/data';
 import Sidebar from './components/layout/Sidebar';
 import Header from './components/layout/Header';
 import CommandPalette from './components/command-palette/CommandPalette';
+import ErrorBoundary from './components/ui/ErrorBoundary';
 import { ToastProvider } from './components/ui/Toast';
 import useMediaQuery from './hooks/useMediaQuery';
-import { registerGlobalShortcut } from './hooks/useKeyboard';
 
 const Dashboard = lazy( () =>
 	import(
@@ -65,9 +65,14 @@ const App = () => {
 	}, [ theme ] );
 
 	useEffect( () => {
-		registerGlobalShortcut( 'Ctrl+K', () => {
-			setPaletteOpen( ( prev ) => ! prev );
-		} );
+		const handleKeyDown = ( e ) => {
+			if ( ( e.ctrlKey || e.metaKey ) && e.key === 'k' ) {
+				e.preventDefault();
+				setPaletteOpen( ( prev ) => ! prev );
+			}
+		};
+		document.addEventListener( 'keydown', handleKeyDown );
+		return () => document.removeEventListener( 'keydown', handleKeyDown );
 	}, [] );
 
 	const toggleSidebar = useCallback( () => {
@@ -146,19 +151,20 @@ const App = () => {
 						onMenuToggle={ toggleMobile }
 						onThemeToggle={ handleThemeToggle }
 						theme={ theme }
-						sidebarCollapsed={ sidebarCollapsed }
 						onSearchClick={ () => setPaletteOpen( true ) }
 					/>
 					<main className="lumora-content">
-						<Suspense
-							fallback={
-								<div className="lumora-content__loading">
-									<span className="lumora-spinner" />
-								</div>
-							}
-						>
-							<PageComponent />
-						</Suspense>
+						<ErrorBoundary>
+							<Suspense
+								fallback={
+									<div className="lumora-content__loading">
+										<span className="lumora-spinner" />
+									</div>
+								}
+							>
+								<PageComponent />
+							</Suspense>
+						</ErrorBoundary>
 					</main>
 				</div>
 				{ isMobile && mobileOpen && (

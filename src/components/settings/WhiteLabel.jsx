@@ -115,8 +115,8 @@ const WhiteLabel = () => {
 							</label>
 							<Toggle
 								checked={ config.enabled }
-								onChange={ ( e ) =>
-									handleChange( 'enabled', e.target.checked )
+								onChange={ ( checked ) =>
+									handleChange( 'enabled', checked )
 								}
 							/>
 						</div>
