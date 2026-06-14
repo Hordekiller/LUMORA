@@ -7,8 +7,8 @@
    Uses existing CSS variables from _tokens.scss
    ═══════════════════════════════════════════════════════════════════ */
 
-[data-lumora-theme="dark"] body.lumora-admin-global,
-.lumora-dark body.lumora-admin-global {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global,
+.lumora-dark body.lumora-active.lumora-admin-global {
   background: var(--lumora-bg);
   color: var(--lumora-text);
 }
@@ -20,228 +20,228 @@
 }
 
 /* Notices */
-[data-lumora-theme="dark"] body.lumora-admin-global .notice,
-[data-lumora-theme="dark"] body.lumora-admin-global .updated,
-[data-lumora-theme="dark"] body.lumora-admin-global .error,
-.lumora-dark body.lumora-admin-global .notice,
-.lumora-dark body.lumora-admin-global .updated,
-.lumora-dark body.lumora-admin-global .error {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .notice,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .updated,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .error,
+.lumora-dark body.lumora-active.lumora-admin-global .notice,
+.lumora-dark body.lumora-active.lumora-admin-global .updated,
+.lumora-dark body.lumora-active.lumora-admin-global .error {
   background: var(--lumora-surface);
   color: var(--lumora-text);
   border-color: var(--lumora-border);
 }
 
 /* Buttons */
-[data-lumora-theme="dark"] body.lumora-admin-global .button-primary,
-[data-lumora-theme="dark"] body.lumora-admin-global .components-button.is-primary,
-.lumora-dark body.lumora-admin-global .button-primary,
-.lumora-dark body.lumora-admin-global .components-button.is-primary {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .button-primary,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .components-button.is-primary,
+.lumora-dark body.lumora-active.lumora-admin-global .button-primary,
+.lumora-dark body.lumora-active.lumora-admin-global .components-button.is-primary {
   background: var(--lumora-primary);
   color: var(--lumora-text-inverse);
 }
 
-[data-lumora-theme="dark"] body.lumora-admin-global .button-secondary,
-[data-lumora-theme="dark"] body.lumora-admin-global .components-button:not(.is-primary):not(.is-link),
-.lumora-dark body.lumora-admin-global .button-secondary,
-.lumora-dark body.lumora-admin-global .components-button:not(.is-primary):not(.is-link) {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .button-secondary,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .components-button:not(.is-primary):not(.is-link),
+.lumora-dark body.lumora-active.lumora-admin-global .button-secondary,
+.lumora-dark body.lumora-active.lumora-admin-global .components-button:not(.is-primary):not(.is-link) {
   background: var(--lumora-surface);
   color: var(--lumora-text);
   border-color: var(--lumora-border);
 }
 
 /* Forms */
-[data-lumora-theme="dark"] body.lumora-admin-global input[type="text"],
-[data-lumora-theme="dark"] body.lumora-admin-global input[type="email"],
-[data-lumora-theme="dark"] body.lumora-admin-global input[type="password"],
-[data-lumora-theme="dark"] body.lumora-admin-global textarea,
-[data-lumora-theme="dark"] body.lumora-admin-global select,
-.lumora-dark body.lumora-admin-global input[type="text"],
-.lumora-dark body.lumora-admin-global input[type="email"],
-.lumora-dark body.lumora-admin-global input[type="password"],
-.lumora-dark body.lumora-admin-global textarea,
-.lumora-dark body.lumora-admin-global select {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global input[type="text"],
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global input[type="email"],
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global input[type="password"],
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global textarea,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global select,
+.lumora-dark body.lumora-active.lumora-admin-global input[type="text"],
+.lumora-dark body.lumora-active.lumora-admin-global input[type="email"],
+.lumora-dark body.lumora-active.lumora-admin-global input[type="password"],
+.lumora-dark body.lumora-active.lumora-admin-global textarea,
+.lumora-dark body.lumora-active.lumora-admin-global select {
   background: var(--lumora-surface);
   color: var(--lumora-text);
   border-color: var(--lumora-border);
 }
 
 /* Tables */
-[data-lumora-theme="dark"] body.lumora-admin-global table.wp-list-table thead th,
-.lumora-dark body.lumora-admin-global table.wp-list-table thead th {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global table.wp-list-table thead th,
+.lumora-dark body.lumora-active.lumora-admin-global table.wp-list-table thead th {
   background: var(--lumora-surface-2);
   color: var(--lumora-text-secondary);
 }
 
-[data-lumora-theme="dark"] body.lumora-admin-global table.wp-list-table tbody td,
-.lumora-dark body.lumora-admin-global table.wp-list-table tbody td {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global table.wp-list-table tbody td,
+.lumora-dark body.lumora-active.lumora-admin-global table.wp-list-table tbody td {
   color: var(--lumora-text);
   border-color: var(--lumora-border);
 }
 
-[data-lumora-theme="dark"] body.lumora-admin-global table.wp-list-table tbody tr:hover,
-.lumora-dark body.lumora-admin-global table.wp-list-table tbody tr:hover {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global table.wp-list-table tbody tr:hover,
+.lumora-dark body.lumora-active.lumora-admin-global table.wp-list-table tbody tr:hover {
   background: var(--lumora-surface-2);
 }
 
 /* Metaboxes */
-[data-lumora-theme="dark"] body.lumora-admin-global .postbox,
-[data-lumora-theme="dark"] body.lumora-admin-global .metabox-holder .postbox,
-.lumora-dark body.lumora-admin-global .postbox,
-.lumora-dark body.lumora-admin-global .metabox-holder .postbox {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .postbox,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .metabox-holder .postbox,
+.lumora-dark body.lumora-active.lumora-admin-global .postbox,
+.lumora-dark body.lumora-active.lumora-admin-global .metabox-holder .postbox {
   background: var(--lumora-surface);
   border-color: var(--lumora-border);
 }
 
-[data-lumora-theme="dark"] body.lumora-admin-global .postbox .hndle,
-[data-lumora-theme="dark"] body.lumora-admin-global .postbox .postbox-header,
-.lumora-dark body.lumora-admin-global .postbox .hndle,
-.lumora-dark body.lumora-admin-global .postbox .postbox-header {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .postbox .hndle,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .postbox .postbox-header,
+.lumora-dark body.lumora-active.lumora-admin-global .postbox .hndle,
+.lumora-dark body.lumora-active.lumora-admin-global .postbox .postbox-header {
   background: var(--lumora-surface-2);
   border-color: var(--lumora-border);
   color: var(--lumora-text);
 }
 
 /* Welcome Panel */
-[data-lumora-theme="dark"] body.lumora-admin-global #welcome-panel,
-[data-lumora-theme="dark"] body.lumora-admin-global .welcome-panel-content,
-[data-lumora-theme="dark"] body.lumora-admin-global .wrap .welcome-panel,
-.lumora-dark body.lumora-admin-global #welcome-panel,
-.lumora-dark body.lumora-admin-global .welcome-panel-content,
-.lumora-dark body.lumora-admin-global .wrap .welcome-panel {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global #welcome-panel,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .welcome-panel-content,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .wrap .welcome-panel,
+.lumora-dark body.lumora-active.lumora-admin-global #welcome-panel,
+.lumora-dark body.lumora-active.lumora-admin-global .welcome-panel-content,
+.lumora-dark body.lumora-active.lumora-admin-global .wrap .welcome-panel {
   background: var(--lumora-surface);
   border-color: var(--lumora-border);
   color: var(--lumora-text);
 }
 
 /* Tabs */
-[data-lumora-theme="dark"] body.lumora-admin-global .nav-tab-wrapper .nav-tab,
-.lumora-dark body.lumora-admin-global .nav-tab-wrapper .nav-tab {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .nav-tab-wrapper .nav-tab,
+.lumora-dark body.lumora-active.lumora-admin-global .nav-tab-wrapper .nav-tab {
   background: var(--lumora-surface);
   border-color: var(--lumora-border);
   color: var(--lumora-text-secondary);
 }
 
-[data-lumora-theme="dark"] body.lumora-admin-global .nav-tab-wrapper .nav-tab.nav-tab-active,
-.lumora-dark body.lumora-admin-global .nav-tab-wrapper .nav-tab.nav-tab-active {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .nav-tab-wrapper .nav-tab.nav-tab-active,
+.lumora-dark body.lumora-active.lumora-admin-global .nav-tab-wrapper .nav-tab.nav-tab-active {
   background: var(--lumora-surface);
   color: var(--lumora-text);
   border-bottom-color: var(--lumora-surface);
 }
 
 /* Plugins / Themes */
-[data-lumora-theme="dark"] body.lumora-admin-global .plugin-card,
-[data-lumora-theme="dark"] body.lumora-admin-global .theme,
-.lumora-dark body.lumora-admin-global .plugin-card,
-.lumora-dark body.lumora-admin-global .theme {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .plugin-card,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .theme,
+.lumora-dark body.lumora-active.lumora-admin-global .plugin-card,
+.lumora-dark body.lumora-active.lumora-admin-global .theme {
   background: var(--lumora-surface);
   border-color: var(--lumora-border);
 }
 
 /* Footer */
-[data-lumora-theme="dark"] body.lumora-admin-global #wpfooter,
-.lumora-dark body.lumora-admin-global #wpfooter {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global #wpfooter,
+.lumora-dark body.lumora-active.lumora-admin-global #wpfooter {
   background: var(--lumora-surface-2);
   border-color: var(--lumora-border);
   color: var(--lumora-text-disabled);
 }
 
 /* Form tables */
-[data-lumora-theme="dark"] body.lumora-admin-global .form-table th,
-.lumora-dark body.lumora-admin-global .form-table th {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .form-table th,
+.lumora-dark body.lumora-active.lumora-admin-global .form-table th {
   color: var(--lumora-text-secondary);
   border-color: var(--lumora-border);
 }
 
-[data-lumora-theme="dark"] body.lumora-admin-global .form-table td,
-.lumora-dark body.lumora-admin-global .form-table td {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .form-table td,
+.lumora-dark body.lumora-active.lumora-admin-global .form-table td {
   color: var(--lumora-text);
   border-color: var(--lumora-border);
 }
 
 /* Media Modal */
-[data-lumora-theme="dark"] body.lumora-admin-global .media-modal,
-[data-lumora-theme="dark"] body.lumora-admin-global .media-modal-content,
-.lumora-dark body.lumora-admin-global .media-modal,
-.lumora-dark body.lumora-admin-global .media-modal-content {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .media-modal,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .media-modal-content,
+.lumora-dark body.lumora-active.lumora-admin-global .media-modal,
+.lumora-dark body.lumora-active.lumora-admin-global .media-modal-content {
   background: var(--lumora-surface);
   color: var(--lumora-text);
 }
 
 /* Uploader */
-[data-lumora-theme="dark"] body.lumora-admin-global .plupload-upload-ui,
-.lumora-dark body.lumora-admin-global .plupload-upload-ui {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .plupload-upload-ui,
+.lumora-dark body.lumora-active.lumora-admin-global .plupload-upload-ui {
   background: var(--lumora-surface-2);
   border-color: var(--lumora-border);
   color: var(--lumora-text-secondary);
 }
 
 /* Gutenberg */
-[data-lumora-theme="dark"] body.lumora-admin-global .editor-styles-wrapper,
-[data-lumora-theme="dark"] body.lumora-admin-global .edit-post-layout,
-[data-lumora-theme="dark"] body.lumora-admin-global .edit-post-sidebar,
-.lumora-dark body.lumora-admin-global .editor-styles-wrapper,
-.lumora-dark body.lumora-admin-global .edit-post-layout,
-.lumora-dark body.lumora-admin-global .edit-post-sidebar {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .editor-styles-wrapper,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .edit-post-layout,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .edit-post-sidebar,
+.lumora-dark body.lumora-active.lumora-admin-global .editor-styles-wrapper,
+.lumora-dark body.lumora-active.lumora-admin-global .edit-post-layout,
+.lumora-dark body.lumora-active.lumora-admin-global .edit-post-sidebar {
   background: var(--lumora-bg);
   color: var(--lumora-text);
 }
 
-[data-lumora-theme="dark"] body.lumora-admin-global .edit-post-sidebar .components-panel__body-toggle,
-[data-lumora-theme="dark"] body.lumora-admin-global .edit-post-sidebar .components-panel__body-title,
-.lumora-dark body.lumora-admin-global .edit-post-sidebar .components-panel__body-toggle,
-.lumora-dark body.lumora-admin-global .edit-post-sidebar .components-panel__body-title {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .edit-post-sidebar .components-panel__body-toggle,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .edit-post-sidebar .components-panel__body-title,
+.lumora-dark body.lumora-active.lumora-admin-global .edit-post-sidebar .components-panel__body-toggle,
+.lumora-dark body.lumora-active.lumora-admin-global .edit-post-sidebar .components-panel__body-title {
   color: var(--lumora-text);
 }
 
 /* WooCommerce */
-[data-lumora-theme="dark"] body.lumora-admin-global .woocommerce,
-.lumora-dark body.lumora-admin-global .woocommerce {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .woocommerce,
+.lumora-dark body.lumora-active.lumora-admin-global .woocommerce {
   background: var(--lumora-bg);
   color: var(--lumora-text);
 }
 
-[data-lumora-theme="dark"] body.lumora-admin-global .woocommerce .wrap h1,
-[data-lumora-theme="dark"] body.lumora-admin-global .woocommerce .wrap h2,
-[data-lumora-theme="dark"] body.lumora-admin-global .woocommerce .postbox .hndle,
-.lumora-dark body.lumora-admin-global .woocommerce .wrap h1,
-.lumora-dark body.lumora-admin-global .woocommerce .wrap h2,
-.lumora-dark body.lumora-admin-global .woocommerce .postbox .hndle {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .woocommerce .wrap h1,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .woocommerce .wrap h2,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .woocommerce .postbox .hndle,
+.lumora-dark body.lumora-active.lumora-admin-global .woocommerce .wrap h1,
+.lumora-dark body.lumora-active.lumora-admin-global .woocommerce .wrap h2,
+.lumora-dark body.lumora-active.lumora-admin-global .woocommerce .postbox .hndle {
   color: var(--lumora-text);
 }
 
-[data-lumora-theme="dark"] body.lumora-admin-global .woocommerce #poststuff .postbox,
-.lumora-dark body.lumora-admin-global .woocommerce #poststuff .postbox {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .woocommerce #poststuff .postbox,
+.lumora-dark body.lumora-active.lumora-admin-global .woocommerce #poststuff .postbox {
   background: var(--lumora-surface);
   border-color: var(--lumora-border);
 }
 
-[data-lumora-theme="dark"] body.lumora-admin-global .woocommerce select,
-[data-lumora-theme="dark"] body.lumora-admin-global .woocommerce input[type="text"],
-[data-lumora-theme="dark"] body.lumora-admin-global .woocommerce textarea,
-.lumora-dark body.lumora-admin-global .woocommerce select,
-.lumora-dark body.lumora-admin-global .woocommerce input[type="text"],
-.lumora-dark body.lumora-admin-global .woocommerce textarea {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .woocommerce select,
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .woocommerce input[type="text"],
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .woocommerce textarea,
+.lumora-dark body.lumora-active.lumora-admin-global .woocommerce select,
+.lumora-dark body.lumora-active.lumora-admin-global .woocommerce input[type="text"],
+.lumora-dark body.lumora-active.lumora-admin-global .woocommerce textarea {
   background: var(--lumora-surface);
   border-color: var(--lumora-border);
   color: var(--lumora-text);
 }
 
 /* Dashboard Widgets */
-[data-lumora-theme="dark"] body.lumora-admin-global .dashboard-widgets .postbox,
-.lumora-dark body.lumora-admin-global .dashboard-widgets .postbox {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .dashboard-widgets .postbox,
+.lumora-dark body.lumora-active.lumora-admin-global .dashboard-widgets .postbox {
   background: var(--lumora-surface);
   border-color: var(--lumora-border);
 }
 
 /* Admin Pointer */
-[data-lumora-theme="dark"] body.lumora-admin-global .admin-pointer,
-.lumora-dark body.lumora-admin-global .admin-pointer {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global .admin-pointer,
+.lumora-dark body.lumora-active.lumora-admin-global .admin-pointer {
   background: var(--lumora-surface);
   border-color: var(--lumora-border);
 }
 
 /* Sidebar */
-[data-lumora-theme="dark"] body.lumora-admin-global #adminmenubody,
-.lumora-dark body.lumora-admin-global #adminmenubody {
+[data-lumora-theme="dark"] body.lumora-active.lumora-admin-global #adminmenubody,
+.lumora-dark body.lumora-active.lumora-admin-global #adminmenubody {
   background: var(--lumora-sidebar-bg);
 }

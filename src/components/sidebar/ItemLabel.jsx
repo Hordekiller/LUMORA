@@ -1,13 +1,6 @@
-import classnames from '../../utils/classnames';
-
-export default function ItemLabel( { children, align } ) {
+export default function ItemLabel( { children } ) {
 	return (
-		<span
-			className={ classnames(
-				'lumora-global-sidebar__label',
-				align === 'right' && 'lumora-global-sidebar__label--right'
-			) }
-		>
+		<span className="lumora-global-sidebar__label">
 			{ children }
 		</span>
 	);

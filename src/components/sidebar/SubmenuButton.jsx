@@ -21,9 +21,7 @@ export default function SubmenuButton( { item, expanded, isRtl, onClick } ) {
 			aria-expanded={ expanded }
 		>
 			<Icon name={ item.icon } size={ 18 } />
-			<ItemLabel align={ isRtl ? 'right' : 'left' }>
-				{ item.title }
-			</ItemLabel>
+			<ItemLabel>{ item.title }</ItemLabel>
 			<Icon
 				className="lumora-global-sidebar__chevron"
 				name={ chevronIcon }

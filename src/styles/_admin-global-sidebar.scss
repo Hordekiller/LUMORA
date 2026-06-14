@@ -1,0 +1,136 @@
+@use 'tokens';
+
+/* stylelint-disable no-descending-specificity */
+
+/* ─── Global Sidebar (renders on ALL admin pages) ─── */
+.lumora-global-sidebar {
+  position: fixed;
+  top: 32px;
+  inset-inline-start: 0;
+  bottom: 0;
+  width: var(--lumora-global-sidebar-width, 160px);
+  background: var(--lumora-sidebar-bg);
+  color: var(--lumora-sidebar-text);
+  z-index: 100002;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: width var(--lumora-transition);
+
+  /* ─── Brand ─── */
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--lumora-space-3);
+    padding: var(--lumora-space-4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    height: 56px;
+    flex-shrink: 0;
+  }
+
+  &__logo {
+    width: 32px;
+    height: 32px;
+    background: var(--lumora-primary);
+    border-radius: var(--lumora-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: var(--lumora-text-lg);
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  /* ─── Nav ─── */
+  &__nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--lumora-space-3);
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ─── Menu Item ─── */
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: var(--lumora-space-3);
+    padding: var(--lumora-space-2) var(--lumora-space-3);
+    border-radius: var(--lumora-radius);
+    color: var(--lumora-sidebar-text);
+    opacity: 0.75;
+    transition: all var(--lumora-transition-fast);
+    width: 100%;
+    text-align: start;
+    font-size: var(--lumora-text-sm);
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 1.4;
+
+    &:hover {
+      opacity: 1;
+      background: var(--lumora-sidebar-hover);
+      color: var(--lumora-sidebar-text);
+    }
+
+    &--expanded {
+      opacity: 1;
+      background: var(--lumora-sidebar-hover);
+    }
+
+    &--sub {
+      padding-inline-start: calc(var(--lumora-space-3) + var(--lumora-space-4));
+      font-size: var(--lumora-text-xs);
+      opacity: 0.6;
+    }
+  }
+
+  /* ─── Label ─── */
+  &__label {
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* ─── Submenu ─── */
+  &__submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ─── Chevron ─── */
+  &__chevron {
+    margin-inline-start: auto;
+    opacity: 0.5;
+    transition: transform var(--lumora-transition-fast);
+  }
+
+  /* ─── Divider ─── */
+  &__divider {
+    margin: var(--lumora-space-3) 0;
+    border: none;
+    padding: 0;
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin: 0;
+    }
+  }
+}

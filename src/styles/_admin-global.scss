@@ -1,5 +1,7 @@
 @use 'tokens';
+@use 'icon';
 @use 'admin-global-base';
+@use 'admin-global-sidebar';
 @use 'admin-global-components';
 @use 'admin-global-gutenberg';
 @use 'admin-global-dark';
@@ -8,68 +10,69 @@
 
 /* ─── Lumora Global Admin Overrides ─── */
 
-/* Applies Lumora design system to all WordPress admin pages */
-
+/* Sidebar width variable — needed on all pages with sidebar */
 body.lumora-admin-global {
   --lumora-global-sidebar-width: 160px;
 }
 
-/* ─── WooCommerce Product Page ─── */
-.woocommerce {
-  background: var(--lumora-bg);
-  color: var(--lumora-text);
-}
+/* ─── WooCommerce — Lumora page ONLY ─── */
+body.lumora-active {
+  .woocommerce {
+    background: var(--lumora-bg);
+    color: var(--lumora-text);
+  }
 
-.woocommerce .wrap h1,
-.woocommerce .wrap h2,
-.woocommerce .postbox .hndle {
-  color: var(--lumora-text);
-}
+  .woocommerce .wrap h1,
+  .woocommerce .wrap h2,
+  .woocommerce .postbox .hndle {
+    color: var(--lumora-text);
+  }
 
-.woocommerce #poststuff .postbox {
-  background: var(--lumora-surface);
-  border-color: var(--lumora-border);
-}
+  .woocommerce #poststuff .postbox {
+    background: var(--lumora-surface);
+    border-color: var(--lumora-border);
+  }
 
-.woocommerce #poststuff .postbox .hndle,
-.woocommerce #poststuff .postbox .postbox-header {
-  background: var(--lumora-surface-2);
-  border-color: var(--lumora-border);
-  color: var(--lumora-text);
-}
+  .woocommerce #poststuff .postbox .hndle,
+  .woocommerce #poststuff .postbox .postbox-header {
+    background: var(--lumora-surface-2);
+    border-color: var(--lumora-border);
+    color: var(--lumora-text);
+  }
 
-.woocommerce #poststuff .postbox .inside {
-  background: var(--lumora-surface);
-  color: var(--lumora-text);
-}
+  .woocommerce #poststuff .postbox .inside {
+    background: var(--lumora-surface);
+    color: var(--lumora-text);
+  }
 
-.woocommerce select,
-.woocommerce input[type="text"],
-.woocommerce input[type="email"],
-.woocommerce input[type="password"],
-.woocommerce input[type="number"],
-.woocommerce textarea {
-  background: var(--lumora-surface);
-  border-color: var(--lumora-border);
-  color: var(--lumora-text);
-  border-radius: var(--lumora-radius);
-}
+  .woocommerce select,
+  .woocommerce input[type="text"],
+  .woocommerce input[type="email"],
+  .woocommerce input[type="password"],
+  .woocommerce input[type="number"],
+  .woocommerce textarea {
+    background: var(--lumora-surface);
+    border-color: var(--lumora-border);
+    color: var(--lumora-text);
+    border-radius: var(--lumora-radius);
+  }
 
-.woocommerce .button,
-.woocommerce .button-primary,
-.woocommerce .button-secondary {
-  background: var(--lumora-primary);
-  border-color: var(--lumora-primary-dark);
-  color: var(--lumora-text-inverse);
-  border-radius: var(--lumora-radius);
-}
+  .woocommerce .button,
+  .woocommerce .button-primary,
+  .woocommerce .button-secondary {
+    background: var(--lumora-primary);
+    border-color: var(--lumora-primary-dark);
+    color: var(--lumora-text-inverse);
+    border-radius: var(--lumora-radius);
+  }
 
-.woocommerce .button:hover,
-.woocommerce .button-primary:hover {
-  background: var(--lumora-primary-dark);
-}
+  .woocommerce .button:hover,
+  .woocommerce .button-primary:hover {
+    background: var(--lumora-primary-dark);
+  }
 
-.woocommerce_meta .inside,
-.woocommerce_options_panel .inside {
-  background: var(--lumora-surface);
+  .woocommerce_meta .inside,
+  .woocommerce_options_panel .inside {
+    background: var(--lumora-surface);
+  }
 }

@@ -74,12 +74,19 @@ class Admin {
 	 * @return string
 	 */
 	public function add_body_class( string $classes ): string {
+		$screen = get_current_screen();
+		if ( ! $screen ) {
+			return $classes;
+		}
+
+		// Add global sidebar class on ALL admin pages.
 		$classes .= ' lumora-admin-global';
 
-		$screen = get_current_screen();
-		if ( $screen && 'toplevel_page_lumora' === $screen->id ) {
+		// Add active class only on Lumora page.
+		if ( 'toplevel_page_lumora' === $screen->id ) {
 			$classes .= ' lumora-active';
 		}
+
 		return $classes;
 	}
 

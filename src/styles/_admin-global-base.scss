@@ -2,17 +2,16 @@
 
 /* stylelint-disable no-descending-specificity */
 
-/* ─── Base ─── */
-body.admin.lumora-admin-global {
-  font-family: var(--lumora-font-sans);
-  background: var(--lumora-bg);
-  color: var(--lumora-text);
-}
+/* ═══════════════════════════════════════════════════════════════════
+   Admin Global Base
+   - Sidebar styles: body.lumora-admin-global (all pages with sidebar)
+   - Theme styles: body.lumora-active (Lumora page only)
+   ═══════════════════════════════════════════════════════════════════ */
 
-/* ─── Admin Bar ─── */
+/* ─── Admin Bar (all pages) ─── */
 #wpadminbar {
   background: var(--lumora-gray-900) !important;
-  z-index: 99999 !important;
+  z-index: 100003 !important;
 
   .quicklinks li a {
     color: var(--lumora-gray-300);
@@ -35,82 +34,95 @@ body.admin.lumora-admin-global {
   }
 }
 
-/* ─── Wrap (Admin Content) ─── */
-body.lumora-admin-global .wrap {
-  font-family: var(--lumora-font-sans);
+/* ─── Hide WP Admin Menu (all pages with sidebar) ─── */
+body.lumora-admin-global #adminmenumain,
+body.lumora-admin-global #adminmenubody,
+body.lumora-admin-global #adminmenuwrap,
+body.lumora-admin-global #adminmenuback {
+  display: none !important;
+}
 
-  h1,
-  h2,
-  h3 {
+/* ─── Content Area — Shift for Lumora sidebar (all pages with sidebar) ─── */
+body.lumora-admin-global #wpcontent,
+body.lumora-admin-global #wpbody-content {
+  margin-inline-start: var(--lumora-global-sidebar-width) !important;
+  margin-inline-end: 0 !important;
+  padding-inline-start: 20px !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Theme Styles — Lumora page ONLY (body.lumora-active)
+   ═══════════════════════════════════════════════════════════════════ */
+
+body.lumora-active {
+  --lumora-global-sidebar-width: 160px;
+
+  &.admin.lumora-admin-global {
     font-family: var(--lumora-font-sans);
-    font-weight: 700;
+    background: var(--lumora-bg);
     color: var(--lumora-text);
   }
-}
 
-/* ─── Welcome Panel / Dashboard Columns ─── */
-body.lumora-admin-global #welcome-panel,
-body.lumora-admin-global .welcome-panel-content,
-body.lumora-admin-global .wrap .welcome-panel {
-  background: var(--lumora-surface);
-  border: 1px solid var(--lumora-border);
-  border-color: var(--lumora-border);
-  border-radius: var(--lumora-radius);
-  box-shadow: var(--lumora-shadow-sm);
-  color: var(--lumora-text);
-}
+  /* ─── Wrap (Admin Content) ─── */
+  .wrap {
+    font-family: var(--lumora-font-sans);
 
-body.lumora-admin-global #welcome-panel .welcome-panel-header,
-body.lumora-admin-global .wrap .welcome-panel-header {
-  background: var(--lumora-surface-2);
-  border-color: var(--lumora-border);
-  border-radius: var(--lumora-radius) var(--lumora-radius) 0 0;
-  color: var(--lumora-text);
-}
-
-body.lumora-admin-global #welcome-panel .welcome-panel-header h2,
-body.lumora-admin-global #welcome-panel .welcome-panel-header p,
-body.lumora-admin-global .wrap .welcome-panel-header h2,
-body.lumora-admin-global .wrap .welcome-panel-header p {
-  color: var(--lumora-text);
-}
-
-body.lumora-admin-global .welcome-panel-column-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--lumora-space-4);
-  padding: var(--lumora-space-4);
-}
-
-body.lumora-admin-global .welcome-panel-column {
-  background: var(--lumora-surface);
-  border: 1px solid var(--lumora-border);
-  border-radius: var(--lumora-radius);
-  box-shadow: var(--lumora-shadow-sm);
-  padding: var(--lumora-space-4);
-  flex: 1 1 220px;
-
-  h3,
-  h4 {
-    color: var(--lumora-text);
-    font-weight: 600;
-  }
-
-  a {
-    color: var(--lumora-primary);
-
-    &:hover {
-      color: var(--lumora-primary-dark);
+    h1,
+    h2,
+    h3 {
+      font-family: var(--lumora-font-sans);
+      font-weight: 700;
+      color: var(--lumora-text);
     }
   }
 
-  p {
-    color: var(--lumora-text-secondary);
-    line-height: var(--lumora-leading-normal);
+  /* ─── Welcome Panel / Dashboard Columns ─── */
+  #welcome-panel,
+  .welcome-panel-content,
+  .wrap .welcome-panel {
+    background: var(--lumora-surface);
+    border: 1px solid var(--lumora-border);
+    border-color: var(--lumora-border);
+    border-radius: var(--lumora-radius);
+    box-shadow: var(--lumora-shadow-sm);
+    color: var(--lumora-text);
   }
 
-  ul li {
-    color: var(--lumora-text-secondary);
+  #welcome-panel .welcome-panel-header,
+  .wrap .welcome-panel-header {
+    background: var(--lumora-surface-2);
+    border-color: var(--lumora-border);
+    border-radius: var(--lumora-radius) var(--lumora-radius) 0 0;
+    color: var(--lumora-text);
+  }
+
+  #welcome-panel .welcome-panel-header h2,
+  #welcome-panel .welcome-panel-header p,
+  .wrap .welcome-panel-header h2,
+  .wrap .welcome-panel-header p {
+    color: var(--lumora-text);
+  }
+
+  .welcome-panel-column-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--lumora-space-4);
+    padding: var(--lumora-space-4);
+  }
+
+  .welcome-panel-column {
+    background: var(--lumora-surface);
+    border: 1px solid var(--lumora-border);
+    border-radius: var(--lumora-radius);
+    box-shadow: var(--lumora-shadow-sm);
+    padding: var(--lumora-space-4);
+    flex: 1 1 220px;
+
+    h3,
+    h4 {
+      color: var(--lumora-text);
+      font-weight: 600;
+    }
 
     a {
       color: var(--lumora-primary);
@@ -119,58 +131,75 @@ body.lumora-admin-global .welcome-panel-column {
         color: var(--lumora-primary-dark);
       }
     }
+
+    p {
+      color: var(--lumora-text-secondary);
+      line-height: var(--lumora-leading-normal);
+    }
+
+    ul li {
+      color: var(--lumora-text-secondary);
+
+      a {
+        color: var(--lumora-primary);
+
+        &:hover {
+          color: var(--lumora-primary-dark);
+        }
+      }
+    }
+  }
+
+  /* ─── WP Card Boxes (Dashboard) ─── */
+  .wp-card-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--lumora-space-4);
+  }
+
+  .wp-card-box {
+    background: var(--lumora-surface);
+    border: 1px solid var(--lumora-border);
+    border-radius: var(--lumora-radius);
+    box-shadow: var(--lumora-shadow-sm);
+    padding: var(--lumora-space-4);
+    flex: 1 1 200px;
+    transition: box-shadow var(--lumora-transition-fast);
+
+    &:hover {
+      box-shadow: var(--lumora-shadow);
+    }
+
+    .wp-card-box-icon {
+      color: var(--lumora-primary);
+    }
+
+    .wp-card-box-name {
+      color: var(--lumora-text);
+      font-weight: 600;
+    }
+
+    .wp-card-box-description {
+      color: var(--lumora-text-secondary);
+    }
+  }
+
+  /* ─── Screen Meta ─── */
+  #screen-meta-links,
+  #screen-meta {
+    background: var(--lumora-surface);
+    border-color: var(--lumora-border);
+  }
+
+  /* ─── Footer ─── */
+  #wpfooter {
+    background: var(--lumora-surface-2);
+    border-top: 1px solid var(--lumora-border);
+    color: var(--lumora-text-disabled);
   }
 }
 
-/* ─── WP Card Boxes (Dashboard) ─── */
-body.lumora-admin-global .wp-card-boxes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--lumora-space-4);
-}
-
-body.lumora-admin-global .wp-card-box {
-  background: var(--lumora-surface);
-  border: 1px solid var(--lumora-border);
-  border-radius: var(--lumora-radius);
-  box-shadow: var(--lumora-shadow-sm);
-  padding: var(--lumora-space-4);
-  flex: 1 1 200px;
-  transition: box-shadow var(--lumora-transition-fast);
-
-  &:hover {
-    box-shadow: var(--lumora-shadow);
-  }
-
-  .wp-card-box-icon {
-    color: var(--lumora-primary);
-  }
-
-  .wp-card-box-name {
-    color: var(--lumora-text);
-    font-weight: 600;
-  }
-
-  .wp-card-box-description {
-    color: var(--lumora-text-secondary);
-  }
-}
-
-/* ─── Screen Meta ─── */
-body.lumora-admin-global #screen-meta-links,
-body.lumora-admin-global #screen-meta {
-  background: var(--lumora-surface);
-  border-color: var(--lumora-border);
-}
-
-/* ─── Footer ─── */
-body.lumora-admin-global #wpfooter {
-  background: var(--lumora-surface-2);
-  border-top: 1px solid var(--lumora-border);
-  color: var(--lumora-text-disabled);
-}
-
-/* ─── Scrollbar ─── */
+/* ─── Scrollbar (all pages) ─── */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -189,13 +218,13 @@ body.lumora-admin-global #wpfooter {
   }
 }
 
-/* ─── Selection ─── */
+/* ─── Selection (all pages) ─── */
 ::selection {
   background: color-mix(in srgb, var(--lumora-primary) 25%, transparent);
   color: var(--lumora-text);
 }
 
-/* ─── Focus Ring (Global) ─── */
+/* ─── Focus Ring (all pages) ─── */
 body.lumora-admin-global a:focus-visible,
 body.lumora-admin-global button:focus-visible,
 body.lumora-admin-global input:focus-visible,
@@ -206,31 +235,9 @@ body.lumora-admin-global [tabindex]:focus-visible {
   outline-offset: 2px !important;
 }
 
-/* ─── Hide WP Admin Menu ─── */
-body.lumora-admin-global #adminmenumain,
-body.lumora-admin-global #adminmenubody,
-body.lumora-admin-global #adminmenuwrap,
-body.lumora-admin-global #adminmenuback {
-  display: none !important;
-}
-
-/* ─── Content Area — Shift for Lumora sidebar ─── */
-body.lumora-admin-global #wpcontent,
-body.lumora-admin-global #wpbody-content {
-  margin-left: var(--lumora-global-sidebar-width) !important;
-  margin-right: 0 !important;
-  padding-left: 20px !important;
-}
-
-[dir="rtl"] body.lumora-admin-global #wpcontent,
-[dir="rtl"] body.lumora-admin-global #wpbody-content {
-  margin-left: 0 !important;
-  margin-right: var(--lumora-global-sidebar-width) !important;
-  padding-left: 0 !important;
-  padding-right: 20px !important;
-}
-
-/* ─── Lumora Active Page — Full screen React SPA ─── */
+/* ═══════════════════════════════════════════════════════════════════
+   Lumora Active Page — Full screen React SPA
+   ═══════════════════════════════════════════════════════════════════ */
 body.lumora-active #wpfooter,
 body.lumora-active .notice,
 body.lumora-active .update-nag,
@@ -266,30 +273,20 @@ body.lumora-active .lumora-app {
   min-height: 100vh;
 }
 
+body.lumora-active .lumora-global-sidebar {
+  top: 0 !important;
+}
+
 body.lumora-active .wrap {
   margin: 0 !important;
   padding: 0 !important;
 }
 
-[dir="rtl"] body.lumora-active #wpcontent {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* ─── RTL: General admin adjustments ─── */
-[dir="rtl"] body.lumora-admin-global .wrap {
-  direction: rtl;
-  text-align: right;
-}
-
+/* ─── RTL: WP admin adjustments ─── */
 [dir="rtl"] body.lumora-admin-global .tablenav .alignleft {
   float: right;
 }
 
 [dir="rtl"] body.lumora-admin-global .tablenav .alignright {
   float: left;
-}
-
-[dir="rtl"] body.lumora-admin-global .row-actions span:not(.edit):not(.trash):not(.spam):not(.delete) {
-  display: inline;
 }

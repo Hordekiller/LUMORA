@@ -26,24 +26,22 @@ class Assets {
 	 * @return void
 	 */
 	public function enqueue_styles( string $hook_suffix ): void {
-		// Load global admin styles on ALL admin pages.
+		// Global styles on ALL admin pages.
 		$this->enqueue_global_admin_styles();
 
-		// Load full admin styles only on Lumora page.
-		if ( 'toplevel_page_lumora' !== $hook_suffix ) {
-			return;
-		}
+		// Page-specific styles only on Lumora page.
+		if ( 'toplevel_page_lumora' === $hook_suffix ) {
+			$style_path = 'build/admin.css';
+			$style_file = LUMORA_PLUGIN_DIR . $style_path;
 
-		$style_path = 'build/admin.css';
-		$style_file = LUMORA_PLUGIN_DIR . $style_path;
-
-		if ( file_exists( $style_file ) ) {
-			wp_enqueue_style(
-				'lumora-admin',
-				LUMORA_PLUGIN_URL . $style_path,
-				array( 'lumora-admin-global' ),
-				filemtime( $style_file )
-			);
+			if ( file_exists( $style_file ) ) {
+				wp_enqueue_style(
+					'lumora-admin',
+					LUMORA_PLUGIN_URL . $style_path,
+					array( 'lumora-admin-global' ),
+					filemtime( $style_file )
+				);
+			}
 		}
 	}
 
@@ -75,8 +73,11 @@ class Assets {
 	 * @return void
 	 */
 	public function enqueue_scripts( string $hook_suffix ): void {
+		// Global sidebar on ALL admin pages.
+		$this->enqueue_global_sidebar_script();
+
+		// Palette + PWA on non-Lumora pages.
 		if ( 'toplevel_page_lumora' !== $hook_suffix ) {
-			$this->enqueue_global_sidebar_script();
 			$this->enqueue_palette_script();
 			$this->enqueue_pwa_script();
 
@@ -267,7 +268,12 @@ class Assets {
 		}
 
 		if ( file_exists( $manifest ) ) {
-			wp_register_link_rel( 'manifest', LUMORA_PLUGIN_URL . 'public/manifest.json' );
+			add_action(
+				'wp_head',
+				function () {
+					echo '<link rel="manifest" href="' . esc_url( LUMORA_PLUGIN_URL . 'public/manifest.json' ) . '">' . "\n";
+				}
+			);
 		}
 	}
 
