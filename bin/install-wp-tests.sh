@@ -29,7 +29,13 @@ error() {
 }
 
 # Check dependencies
-command -v mysql >/dev/null 2>&1 || error "mysql not found. Install MySQL client."
+if ! command -v mysql >/dev/null 2>&1 && ! command -v mariadb >/dev/null 2>&1; then
+  error "mysql or mariadb client not found. Install MySQL/MariaDB client."
+fi
+# Use mariadb if mysql is not available
+if ! command -v mysql >/dev/null 2>&1 && command -v mariadb >/dev/null 2>&1; then
+  mysql() { mariadb "$@"; }
+fi
 command -v wget >/dev/null 2>&1 || command -v curl >/dev/null 2>&1 || error "wget or curl required."
 
 # Download WordPress core if not present

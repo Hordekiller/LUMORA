@@ -74,7 +74,12 @@ jobs:
 
       - name: Setup WP test suite
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq subversion
+          sudo apt-get update -qq && sudo apt-get install -y -qq subversion mariadb-client
+          # Wait for MySQL to be ready
+          until mysqladmin ping -h 127.0.0.1 --silent 2>/dev/null; do
+            echo "Waiting for MySQL..."
+            sleep 2
+          done
           bash bin/install-wp-tests.sh wordpress_test root root 127.0.0.1:3306 ${{ matrix.wp }} true
         shell: bash
 
