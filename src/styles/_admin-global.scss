@@ -1,8 +1,15 @@
 @use 'tokens';
 @use 'mixins' as *;
 
+/* stylelint-disable no-descending-specificity */
+
 /* ─── Lumora Global Admin Overrides ─── */
+
 /* Applies Lumora design system to all WordPress admin pages */
+
+body.lumora-admin-global {
+  --lumora-global-sidebar-width: 160px;
+}
 
 /* ─── Base ─── */
 body.admin.lumora-admin-global {
@@ -38,6 +45,7 @@ body.admin.lumora-admin-global {
 }
 
 /* ─── Admin Menu (Legacy — Hidden, kept for reference) ─── */
+
 /* WP admin menu is now completely hidden and replaced by
    the Lumora Global Sidebar rendered by admin-global.js */
 
@@ -122,6 +130,7 @@ body.admin.lumora-admin-global {
   }
 
   ul {
+
     li {
       color: var(--lumora-text-secondary) !important;
 
@@ -365,6 +374,7 @@ table.wp-list-table,
 /* ─── Pagination ─── */
 .tablenav .pages,
 .pagination {
+
   a,
   span {
     color: var(--lumora-text-secondary) !important;
@@ -385,6 +395,7 @@ table.wp-list-table,
 /* ─── Tag / Category Boxes ─── */
 .tagchecklist .tag-added,
 .post-tag .tagchecklist {
+
   a {
     color: var(--lumora-text-secondary) !important;
 
@@ -488,6 +499,154 @@ textarea:focus-visible,
   outline-offset: 2px !important;
 }
 
+/* ─── Lumora Global Sidebar ─── */
+.lumora-global-sidebar {
+  position: fixed;
+  inset-block-start: 32px;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  z-index: 100001;
+  width: var(--lumora-global-sidebar-width);
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: var(--lumora-sidebar-bg);
+  color: var(--lumora-sidebar-text);
+  font-family: var(--lumora-font-sans);
+}
+
+.lumora-global-sidebar__brand {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 12px;
+  border-block-end: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lumora-global-sidebar__logo {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--lumora-primary);
+  color: var(--lumora-text-inverse);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.lumora-global-sidebar__nav {
+  padding: 8px;
+}
+
+.lumora-global-sidebar__menu,
+.lumora-global-sidebar__submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.lumora-global-sidebar__divider {
+  padding-block-start: 8px;
+  margin: 8px 0 0;
+  border-block-start: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lumora-global-sidebar__item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--lumora-sidebar-text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  opacity: 0.75;
+  text-align: start;
+  text-decoration: none;
+  transition:
+    background var(--lumora-transition-fast),
+    color var(--lumora-transition-fast),
+    opacity var(--lumora-transition-fast);
+}
+
+.lumora-global-sidebar__item:hover,
+.lumora-global-sidebar__item:focus {
+  background: var(--lumora-sidebar-hover);
+  color: var(--lumora-sidebar-text);
+  opacity: 1;
+}
+
+.lumora-global-sidebar .lumora-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.lumora-global-sidebar .lumora-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.lumora-global-sidebar .lumora-icon--size-12 {
+  width: 12px;
+  height: 12px;
+}
+
+.lumora-global-sidebar .lumora-icon--size-18 {
+  width: 18px;
+  height: 18px;
+}
+
+.lumora-global-sidebar__item--expanded {
+  opacity: 1;
+}
+
+.lumora-global-sidebar__item--sub {
+  display: block;
+  padding: 4px 8px 4px 34px;
+  color: var(--lumora-gray-400);
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+[dir="rtl"] .lumora-global-sidebar__item--sub {
+  padding: 4px 34px 4px 8px;
+}
+
+.lumora-global-sidebar__item--sub:hover,
+.lumora-global-sidebar__item--sub:focus {
+  color: var(--lumora-text-inverse);
+}
+
+.lumora-global-sidebar__label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lumora-global-sidebar__label--right {
+  text-align: right;
+}
+
+.lumora-global-sidebar__item > .lumora-global-sidebar__label {
+  flex: 1;
+}
+
+.lumora-global-sidebar__chevron {
+  margin-inline-start: auto;
+}
+
 /* ─── Hide WP Admin Menu — Replace with Lumora Global Sidebar ─── */
 body.lumora-admin-global #adminmenumain,
 body.lumora-admin-global #adminmenubody,
@@ -499,7 +658,7 @@ body.lumora-admin-global #adminmenuback {
 /* ─── Content Area — Shift for Lumora sidebar ─── */
 body.lumora-admin-global #wpcontent,
 body.lumora-admin-global #wpbody-content {
-  margin-left: 160px !important;
+  margin-left: var(--lumora-global-sidebar-width) !important;
   margin-right: 0 !important;
   padding-left: 20px !important;
 }
@@ -507,7 +666,7 @@ body.lumora-admin-global #wpbody-content {
 [dir="rtl"] body.lumora-admin-global #wpcontent,
 [dir="rtl"] body.lumora-admin-global #wpbody-content {
   margin-left: 0 !important;
-  margin-right: 160px !important;
+  margin-right: var(--lumora-global-sidebar-width) !important;
   padding-left: 0 !important;
   padding-right: 20px !important;
 }

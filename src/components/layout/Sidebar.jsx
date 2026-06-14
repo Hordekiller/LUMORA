@@ -5,7 +5,7 @@ import Icon from '../ui/Icon';
 
 const lumoraItems = [
 	{ icon: 'home', label: __( 'Dashboard', 'lumora' ), page: 'dashboard' },
-	{ icon: 'grid', label: __( 'Widgets', 'lumora' ), page: 'dashboard' },
+	{ icon: 'grid', label: __( 'Widgets', 'lumora' ), page: 'widgets' },
 	{ icon: 'settings', label: __( 'Settings', 'lumora' ), page: 'settings' },
 	{ icon: 'menu', label: __( 'Menu Manager', 'lumora' ), page: 'menu' },
 	{

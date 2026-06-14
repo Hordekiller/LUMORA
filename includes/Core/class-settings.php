@@ -29,12 +29,12 @@ class Settings {
 	 * Get a setting.
 	 *
 	 * @since 1.0.0
-	 * @param string $key     Setting key.
-	 * @param mixed  $default Default value.
+	 * @param string $key           Setting key.
+	 * @param mixed  $default_value Default value.
 	 * @return mixed
 	 */
-	public function get( string $key, $default = false ) {
-		return get_option( $this->prefix . $key, $default );
+	public function get( string $key, $default_value = false ) {
+		return get_option( $this->prefix . $key, $default_value );
 	}
 
 	/**

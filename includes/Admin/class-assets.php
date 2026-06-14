@@ -76,6 +76,7 @@ class Assets {
 	 */
 	public function enqueue_scripts( string $hook_suffix ): void {
 		if ( 'toplevel_page_lumora' !== $hook_suffix ) {
+			$this->enqueue_global_sidebar_script();
 			$this->enqueue_palette_script();
 			return;
 		}
@@ -117,6 +118,51 @@ class Assets {
 	}
 
 	/**
+	 * Enqueue the global Lumora sidebar on non-Lumora admin pages.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	private function enqueue_global_sidebar_script(): void {
+		$script_path = 'build/admin-global.js';
+		$script_file = LUMORA_PLUGIN_DIR . $script_path;
+
+		if ( ! file_exists( $script_file ) ) {
+			return;
+		}
+
+		$asset_file = LUMORA_PLUGIN_DIR . 'build/admin-global.asset.php';
+		$deps       = array();
+		if ( file_exists( $asset_file ) ) {
+			$asset = require $asset_file;
+			$deps  = (array) $asset['dependencies'];
+		} else {
+			$deps = array( 'wp-element', 'wp-i18n' );
+		}
+
+		wp_enqueue_script(
+			'lumora-admin-global',
+			LUMORA_PLUGIN_URL . $script_path,
+			$deps,
+			filemtime( $script_file ),
+			true
+		);
+
+		wp_localize_script(
+			'lumora-admin-global',
+			'lumoraData',
+			array(
+				'nonce'     => wp_create_nonce( 'wp_rest' ),
+				'restUrl'   => rest_url( 'lumora/v1/' ),
+				'siteName'  => get_bloginfo( 'name' ),
+				'adminUrl'  => admin_url(),
+				'isRtl'     => is_rtl(),
+				'adminMenu' => $this->get_admin_menu(),
+			)
+		);
+	}
+
+	/**
 	 * Enqueue palette script on non-lumora pages.
 	 *
 	 * @since 1.0.0
@@ -151,11 +197,12 @@ class Assets {
 			'lumora-palette',
 			'lumoraData',
 			array(
-				'nonce'    => wp_create_nonce( 'wp_rest' ),
-				'restUrl'  => rest_url( 'lumora/v1/' ),
-				'siteName' => get_bloginfo( 'name' ),
-				'adminUrl' => admin_url(),
-				'isRtl'    => is_rtl(),
+				'nonce'     => wp_create_nonce( 'wp_rest' ),
+				'restUrl'   => rest_url( 'lumora/v1/' ),
+				'siteName'  => get_bloginfo( 'name' ),
+				'adminUrl'  => admin_url(),
+				'isRtl'     => is_rtl(),
+				'adminMenu' => $this->get_admin_menu(),
 			)
 		);
 	}
@@ -270,9 +317,13 @@ class Assets {
 			} elseif ( isset( $submenu[ $slug ] ) ) {
 				// Use first submenu item URL.
 				$first_sub = reset( $submenu[ $slug ] );
-				$url       = admin_url( $first_sub[2] );
+				$url       = $this->get_menu_url( (string) $first_sub[2] );
 			} else {
-				$url = admin_url( 'admin.php?page=' . $slug );
+				$url = $this->get_menu_url( (string) $slug );
+			}
+
+			if ( empty( $url ) ) {
+				continue;
 			}
 
 			$sub_items = array();
@@ -281,9 +332,14 @@ class Assets {
 					if ( empty( $sub[0] ) || empty( $sub[2] ) ) {
 						continue;
 					}
+					$sub_url = $this->get_menu_url( (string) $sub[2] );
+					if ( empty( $sub_url ) ) {
+						continue;
+					}
+
 					$sub_items[] = array(
 						'title' => wp_strip_all_tags( $sub[0] ),
-						'url'   => admin_url( $sub[2] ),
+						'url'   => $sub_url,
 					);
 				}
 			}
@@ -300,5 +356,24 @@ class Assets {
 		}
 
 		return $items;
+	}
+
+	/**
+	 * Build a safe admin URL from a WordPress menu slug.
+	 *
+	 * @since 1.0.0
+	 * @param string $slug Menu slug.
+	 * @return string
+	 */
+	private function get_menu_url( string $slug ): string {
+		if ( '' === $slug || 0 === strpos( $slug, 'http://' ) || 0 === strpos( $slug, 'https://' ) ) {
+			return '';
+		}
+
+		if ( false !== strpos( $slug, '.php' ) || false !== strpos( $slug, '?' ) ) {
+			return esc_url_raw( admin_url( $slug ) );
+		}
+
+		return esc_url_raw( admin_url( 'admin.php?page=' . $slug ) );
 	}
 }

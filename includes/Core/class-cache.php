@@ -29,13 +29,13 @@ class Cache {
 	 * Get cached value.
 	 *
 	 * @since 1.0.0
-	 * @param string $key     Cache key.
-	 * @param mixed  $default Default value.
+	 * @param string $key           Cache key.
+	 * @param mixed  $default_value Default value.
 	 * @return mixed
 	 */
-	public function get( string $key, $default = false ) {
+	public function get( string $key, $default_value = false ) {
 		$value = get_transient( $this->prefix . $key );
-		return false !== $value ? $value : $default;
+		return false !== $value ? $value : $default_value;
 	}
 
 	/**

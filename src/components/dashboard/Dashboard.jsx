@@ -41,6 +41,17 @@ const Dashboard = () => {
 			} );
 	}, [] );
 
+	useEffect( () => {
+		if ( window.location.hash !== '#widgets' ) {
+			return;
+		}
+
+		const widgetsSection = document.getElementById( 'lumora-widgets' );
+		if ( widgetsSection ) {
+			widgetsSection.scrollIntoView( { block: 'start' } );
+		}
+	}, [ isLoading ] );
+
 	const handleLayoutChange = ( newLayout ) => {
 		saveLayout( newLayout );
 	};

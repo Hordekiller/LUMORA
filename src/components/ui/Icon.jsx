@@ -84,6 +84,44 @@ const icons = {
 			<polyline points="9 18 15 12 9 6" />
 		</svg>
 	),
+	chevron_down: (
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<polyline points="6 9 12 15 18 9" />
+		</svg>
+	),
+	arrow_right: (
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<line x1="5" y1="12" x2="19" y2="12" />
+			<polyline points="12 5 19 12 12 19" />
+		</svg>
+	),
+	arrow_down: (
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<line x1="12" y1="5" x2="12" y2="19" />
+			<polyline points="19 12 12 19 5 12" />
+		</svg>
+	),
 	grid: (
 		<svg
 			viewBox="0 0 24 24"
@@ -594,17 +632,19 @@ const icons = {
 	),
 };
 
-const Icon = ( { name, size = 20, className, ...rest } ) => {
-	const iconSvg = icons[ name ];
+const SUPPORTED_SIZES = new Set( [ 12, 14, 16, 18, 20, 22, 24, 28, 32 ] );
 
-	if ( ! iconSvg ) {
-		return null;
-	}
+const Icon = ( { name, size = 20, className, ...rest } ) => {
+	const iconSvg = icons[ name ] || icons.settings;
+	const iconSize = SUPPORTED_SIZES.has( size ) ? size : 20;
 
 	return (
 		<span
-			className={ classnames( 'lumora-icon', className ) }
-			style={ { width: size, height: size } }
+			className={ classnames(
+				'lumora-icon',
+				`lumora-icon--size-${ iconSize }`,
+				className
+			) }
 			aria-hidden="true"
 			{ ...rest }
 		>

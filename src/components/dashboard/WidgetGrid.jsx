@@ -66,29 +66,33 @@ const WidgetGrid = ( { widgets, layout, onLayoutChange, isLoading } ) => {
 	}
 
 	return (
-		<Grid columns={ 2 } gap="md">
-			{ layout.map( ( widgetId ) => {
-				const widget = widgets.find( ( w ) => w.id === widgetId );
-				if ( ! widget ) {
-					return null;
-				}
+		<div id="lumora-widgets">
+			<Grid columns={ 2 } gap="md">
+				{ layout.map( ( widgetId ) => {
+					const widget = widgets.find( ( w ) => w.id === widgetId );
+					if ( ! widget ) {
+						return null;
+					}
 
-				return (
-					<Grid.Item key={ widget.id }>
-						<WidgetWrapper
-							widget={ widget }
-							isDragging={ draggedItem === widget.id }
-							onDragStart={ () => handleDragStart( widget.id ) }
-							onDragOver={ ( e ) =>
-								handleDragOver( e, widget.id )
-							}
-							onDrop={ ( e ) => handleDrop( e, widget.id ) }
-							onDragEnd={ handleDragEnd }
-						/>
-					</Grid.Item>
-				);
-			} ) }
-		</Grid>
+					return (
+						<Grid.Item key={ widget.id }>
+							<WidgetWrapper
+								widget={ widget }
+								isDragging={ draggedItem === widget.id }
+								onDragStart={ () =>
+									handleDragStart( widget.id )
+								}
+								onDragOver={ ( e ) =>
+									handleDragOver( e, widget.id )
+								}
+								onDrop={ ( e ) => handleDrop( e, widget.id ) }
+								onDragEnd={ handleDragEnd }
+							/>
+						</Grid.Item>
+					);
+				} ) }
+			</Grid>
+		</div>
 	);
 };
 

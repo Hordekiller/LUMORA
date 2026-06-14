@@ -36,13 +36,21 @@ const WhiteLabel = lazy( () =>
 
 const PAGES = {
 	dashboard: Dashboard,
+	widgets: Dashboard,
 	settings: Settings,
 	menu: MenuManager,
 	whitelabel: WhiteLabel,
 };
 
+const getInitialPage = () => {
+	const params = new URLSearchParams( window.location.search );
+	const requested = params.get( 'lumora_page' );
+
+	return PAGES[ requested ] ? requested : 'dashboard';
+};
+
 const App = () => {
-	const [ currentPage, setCurrentPage ] = useState( 'dashboard' );
+	const [ currentPage, setCurrentPage ] = useState( getInitialPage );
 	const [ sidebarCollapsed, setSidebarCollapsed ] = useState( false );
 	const [ mobileOpen, setMobileOpen ] = useState( false );
 	const [ paletteOpen, setPaletteOpen ] = useState( false );
@@ -93,6 +101,20 @@ const App = () => {
 	const navigate = useCallback(
 		( page ) => {
 			setCurrentPage( page );
+			if ( page === 'widgets' ) {
+				window.location.hash = 'widgets';
+				window.setTimeout( () => {
+					document
+						.getElementById( 'lumora-widgets' )
+						?.scrollIntoView( { block: 'start' } );
+				}, 0 );
+			} else if ( window.location.hash === '#widgets' ) {
+				window.history.replaceState(
+					null,
+					document.title,
+					window.location.pathname + window.location.search
+				);
+			}
 			if ( isMobile ) {
 				setMobileOpen( false );
 			}
