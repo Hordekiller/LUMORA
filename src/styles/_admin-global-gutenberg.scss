@@ -1,0 +1,163 @@
+@use 'tokens';
+
+/* ═══════════════════════════════════════════════════════════════════
+   Gutenberg Editor Overrides
+   ═══════════════════════════════════════════════════════════════════ */
+
+body.lumora-admin-global .editor-styles-wrapper,
+body.lumora-admin-global .edit-post-layout,
+body.lumora-admin-global .edit-post-layout__metaboxes,
+body.lumora-admin-global .editor__post-attributes,
+body.lumora-admin-global .edit-post-sidebar,
+body.lumora-admin-global .components-editor-post-panel__main-region {
+  background: var(--lumora-bg);
+  color: var(--lumora-text);
+}
+
+body.lumora-admin-global .editor-styles-wrapper {
+  font-family: var(--lumora-font-sans);
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--lumora-text);
+  }
+
+  p {
+    color: var(--lumora-text);
+  }
+
+  a {
+    color: var(--lumora-primary);
+  }
+}
+
+body.lumora-admin-global .editor-post-title__input,
+body.lumora-admin-global .editor-post-title {
+  color: var(--lumora-text);
+}
+
+body.lumora-admin-global .block-editor-default-block-appender .block-editor-default-block-appender__content {
+  color: var(--lumora-text-disabled);
+}
+
+/* ─── Gutenberg Sidebar / Inspector ─── */
+body.lumora-admin-global .edit-post-sidebar,
+body.lumora-admin-global .components-panel {
+  background: var(--lumora-surface);
+  border-color: var(--lumora-border);
+  color: var(--lumora-text);
+}
+
+body.lumora-admin-global .edit-post-sidebar .components-panel__body {
+  border-color: var(--lumora-border);
+}
+
+body.lumora-admin-global .edit-post-sidebar .components-panel__body-toggle,
+body.lumora-admin-global .edit-post-sidebar .components-panel__body-title {
+  color: var(--lumora-text);
+}
+
+body.lumora-admin-global .edit-post-sidebar .components-base-control__label,
+body.lumora-admin-global .edit-post-sidebar .components-input-control__label,
+body.lumora-admin-global .edit-post-sidebar .components-select-control__label {
+  color: var(--lumora-text-secondary);
+}
+
+/* ─── Gutenberg Toolbar ─── */
+body.lumora-admin-global .edit-post-header-toolbar,
+body.lumora-admin-global .block-editor-block-toolbar {
+  background: var(--lumora-surface);
+  border-color: var(--lumora-border);
+}
+
+body.lumora-admin-global .edit-post-header .edit-post-header__settings {
+  background: var(--lumora-surface);
+}
+
+/* ─── Gutenberg Popovers / Dropdowns ─── */
+body.lumora-admin-global .components-popover,
+body.lumora-admin-global .components-dropdown-menu__menu,
+body.lumora-admin-global .components-menu-group {
+  background: var(--lumora-surface);
+  border-color: var(--lumora-border);
+  box-shadow: var(--lumora-shadow-lg);
+}
+
+body.lumora-admin-global .components-menu-item__button {
+  color: var(--lumora-text);
+
+  &:hover,
+  &:focus {
+    background: var(--lumora-surface-2);
+    color: var(--lumora-text);
+  }
+}
+
+body.lumora-admin-global .components-popover__content {
+  background: var(--lumora-surface);
+}
+
+/* ─── Gutenberg Block Library ─── */
+body.lumora-admin-global .block-editor-block-library__inserter-panel {
+  background: var(--lumora-surface);
+}
+
+body.lumora-admin-global .block-editor-block-inspector {
+  background: var(--lumora-surface);
+}
+
+body.lumora-admin-global .block-editor-block-card {
+  background: var(--lumora-surface);
+  color: var(--lumora-text);
+}
+
+/* ─── Gutenberg Post Visibility / Status ─── */
+body.lumora-admin-global .components-panel__row label,
+body.lumora-admin-global .components-panel__row .components-base-control__label {
+  color: var(--lumora-text-secondary);
+}
+
+body.lumora-admin-global .components-radio-control__option label {
+  color: var(--lumora-text);
+}
+
+/* ─── Gutenberg Featured Image ─── */
+body.lumora-admin-global .editor-post-featured-image {
+  background: var(--lumora-surface);
+  border-color: var(--lumora-border);
+}
+
+/* ─── Gutenberg Excerpt ─── */
+body.lumora-admin-global .editor-post-excerpt textarea {
+  background: var(--lumora-surface);
+  color: var(--lumora-text);
+  border-color: var(--lumora-border);
+}
+
+/* ─── Classic Editor Overrides ─── */
+body.lumora-admin-global #wpcontent .mce-content-body {
+  background: var(--lumora-surface);
+  color: var(--lumora-text);
+}
+
+body.lumora-admin-global .wp-editor-container {
+  border-color: var(--lumora-border);
+}
+
+body.lumora-admin-global .mce-panel {
+  background: var(--lumora-surface);
+  border-color: var(--lumora-border);
+}
+
+body.lumora-admin-global .mce-menubar .mce-menubar-item button {
+  color: var(--lumora-text);
+}
+
+body.lumora-admin-global .mce-toolbar .mce-btn-group .mce-btn button {
+  color: var(--lumora-text-secondary);
+}
+
+body.lumora-admin-global .mce-btn {
+  background: var(--lumora-surface);
+  border-color: var(--lumora-border);
+  color: var(--lumora-text);
+}

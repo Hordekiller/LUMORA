@@ -25,5 +25,11 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:setup": "bash bin/install-wp-tests.sh",
+        "lint": "phpcs",
+        "lint:fix": "phpcbf"
     }
 }

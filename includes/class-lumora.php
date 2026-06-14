@@ -168,5 +168,10 @@ final class Lumora {
 
 		$dashboard_endpoint = new API\Dashboard_Endpoint();
 		$this->loader->add_action( 'rest_api_init', $dashboard_endpoint, 'register_routes' );
+
+		// Load WP-CLI commands.
+		if ( defined( 'WP_CLI' ) && WP_CLI ) {
+			require_once LUMORA_PLUGIN_DIR . 'includes/CLI/class-lumora-command.php';
+		}
 	}
 }

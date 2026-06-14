@@ -113,16 +113,14 @@ register_deactivation_hook( __FILE__, 'lumora_deactivate' );
  * Activation callback.
  */
 function lumora_activate(): void {
-	require_once LUMORA_PLUGIN_DIR . 'includes/class-activator.php';
-	call_user_func( array( 'Lumora\\Activator', 'activate' ) );
+	\Lumora\Activator::activate();
 }
 
 /**
  * Deactivation callback.
  */
 function lumora_deactivate(): void {
-	require_once LUMORA_PLUGIN_DIR . 'includes/class-deactivator.php';
-	call_user_func( array( 'Lumora\\Deactivator', 'deactivate' ) );
+	\Lumora\Deactivator::deactivate();
 }
 
 /**

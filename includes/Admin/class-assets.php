@@ -78,6 +78,13 @@ class Assets {
 		if ( 'toplevel_page_lumora' !== $hook_suffix ) {
 			$this->enqueue_global_sidebar_script();
 			$this->enqueue_palette_script();
+			$this->enqueue_pwa_script();
+
+			// Block Editor sidebar panel.
+		if ( in_array( $hook_suffix, array( 'post.php', 'post-new.php' ), true ) ) {
+			$this->enqueue_editor_sidebar_script();
+		}
+
 			return;
 		}
 
@@ -205,6 +212,63 @@ class Assets {
 				'adminMenu' => $this->get_admin_menu(),
 			)
 		);
+	}
+
+	/**
+	 * Enqueue the Block Editor sidebar panel script.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	private function enqueue_editor_sidebar_script(): void {
+		$script_path = 'build/editor-sidebar.js';
+		$script_file = LUMORA_PLUGIN_DIR . $script_path;
+
+		if ( ! file_exists( $script_file ) ) {
+			return;
+		}
+
+		$asset_file = LUMORA_PLUGIN_DIR . 'build/editor-sidebar.asset.php';
+		$deps       = array();
+		if ( file_exists( $asset_file ) ) {
+			$asset = require $asset_file;
+			$deps  = (array) $asset['dependencies'];
+		} else {
+			$deps = array( 'wp-element', 'wp-data', 'wp-i18n', 'wp-components', 'wp-edit-post' );
+		}
+
+		wp_enqueue_script(
+			'lumora-editor-sidebar',
+			LUMORA_PLUGIN_URL . $script_path,
+			$deps,
+			filemtime( $script_file ),
+			true
+		);
+	}
+
+	/**
+	 * Enqueue the PWA registration script.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	private function enqueue_pwa_script(): void {
+		$script_file = LUMORA_PLUGIN_DIR . 'public/pwa-register.js';
+		$manifest    = LUMORA_PLUGIN_DIR . 'public/manifest.json';
+
+		if ( file_exists( $script_file ) ) {
+			wp_enqueue_script(
+				'lumora-pwa',
+				LUMORA_PLUGIN_URL . 'public/pwa-register.js',
+				array(),
+				filemtime( $script_file ),
+				true
+			);
+		}
+
+		if ( file_exists( $manifest ) ) {
+			wp_register_link_rel( 'manifest', LUMORA_PLUGIN_URL . 'public/manifest.json' );
+		}
 	}
 
 	/**

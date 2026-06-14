@@ -7,6 +7,7 @@ module.exports = {
         admin:       path.resolve( __dirname, 'src/index.js' ),
         palette:     path.resolve( __dirname, 'src/palette.js' ),
         'admin-global': path.resolve( __dirname, 'src/admin-global.js' ),
+        'editor-sidebar': path.resolve( __dirname, 'src/editor-sidebar.js' ),
     },
     output: {
         path: path.resolve( __dirname, 'build' ),
