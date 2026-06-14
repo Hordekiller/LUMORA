@@ -35,7 +35,7 @@ jobs:
         run: npm ci
 
       - name: Build assets
-        run: npx wp-scripts build src/index.js src/palette.js --output-path=build
+        run: npm run build
 
       - name: Strip dev files
         run: |

@@ -193,7 +193,7 @@ class Lumora_Command extends WP_CLI_Command {
 				}
 
 				$table_data = array_map(
-					function( $row ) {
+					function ( $row ) {
 						return array(
 							'Key'   => str_replace( 'lumora_', '', $row['option_name'] ),
 							'Value' => $row['option_value'],

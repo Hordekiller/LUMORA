@@ -58,7 +58,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: vendor
-          key: php-${{ matrix.php }}-composer-${{ hashFiles('composer.lock') }}
+          key: php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
 
       - name: Install PHP dependencies
         run: composer install --no-progress --prefer-dist
@@ -104,13 +104,20 @@ jobs:
         run: npx wp-scripts lint-style src/styles/
 
       - name: Build
-        run: npx wp-scripts build src/index.js src/palette.js --output-path=build
+        run: npm run build
 
       - name: Verify build outputs
         run: |
           test -f build/admin.js
           test -f build/admin.css
           test -f build/palette.js
+          test -f build/admin-global.js
+          test -f build/admin-global.css
+          test -f build/editor-sidebar.js
+          test -f build/page-dashboard.js
+          test -f build/page-menu.js
+          test -f build/page-settings.js
+          test -f build/page-whitelabel.js
           echo "Build artifacts verified ✅"
 
   # ─── .org plugin readme check ───
