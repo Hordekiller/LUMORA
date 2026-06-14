@@ -175,8 +175,7 @@ class Settings_Endpoint extends Rest_Controller {
 	 * @param mixed $value Value to sanitize.
 	 * @return mixed
 	 */
-	// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundBeforeLastUsed
-	private function sanitize_value( $value ) {
+	private function sanitize_value( $value ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundBeforeLastUsed
 		if ( is_bool( $value ) ) {
 			return $value;
 		}

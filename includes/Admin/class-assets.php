@@ -81,9 +81,9 @@ class Assets {
 			$this->enqueue_pwa_script();
 
 			// Block Editor sidebar panel.
-		if ( in_array( $hook_suffix, array( 'post.php', 'post-new.php' ), true ) ) {
-			$this->enqueue_editor_sidebar_script();
-		}
+			if ( in_array( $hook_suffix, array( 'post.php', 'post-new.php' ), true ) ) {
+				$this->enqueue_editor_sidebar_script();
+			}
 
 			return;
 		}
